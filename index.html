@@ -127,9 +127,24 @@
                 <p>Connect with a global network of cybersecurity professionals, access exclusive resources, and accelerate your career.</p>
             </div>
             <div class="card-grid">
-                <div class="card"><div class="card-tag">Community</div><h3>Global Networking</h3><p>Connect with peers, mentors, and industry leaders through our private forums.</p></div>
-                <div class="card"><div class="card-tag">Resources</div><h3>Exclusive Content</h3><p>Gain free access to premium webinars, deep-dive research reports, and technical whitepapers.</p></div>
-                <div class="card"><div class="card-tag">Savings</div><h3>Discounts</h3><p>Enjoy up to 20% off all training packages, exam vouchers, and conference tickets.</p></div>
+                <div class="card">
+                    <div class="card-tag">Community</div>
+                    <h3>Global Networking</h3>
+                    <p>Connect with peers, mentors, and industry leaders through our private forums and local chapter events around the world.</p>
+                    <a href="#" class="learn-more mega-link" data-id="networking">View Details &rarr;</a>
+                </div>
+                <div class="card">
+                    <div class="card-tag">Resources</div>
+                    <h3>Exclusive Content</h3>
+                    <p>Gain free access to premium webinars, deep-dive research reports, and technical whitepapers.</p>
+                    <a href="#" class="learn-more mega-link" data-id="resources">View Details &rarr;</a>
+                </div>
+                <div class="card">
+                    <div class="card-tag">Savings</div>
+                    <h3>Discounts</h3>
+                    <p>Enjoy up to 20% off all training packages, exam vouchers, and conference tickets.</p>
+                    <a href="#" class="learn-more mega-link" data-id="discounts">View Details &rarr;</a>
+                </div>
             </div>
         </div>
     </div>
@@ -142,8 +157,18 @@
                 <p>Stay ahead of the curve with the latest threat research, career advice, and industry trends from our expert contributors.</p>
             </div>
             <div class="card-grid">
-                <div class="card"><div class="card-tag">Threat Intelligence</div><h3>The Rise of AI-Powered Phishing</h3><p>Discover how threat actors are leveraging generative AI to craft highly convincing campaigns.</p></div>
-                <div class="card"><div class="card-tag">Career Advice</div><h3>Transitioning from IT to Cybersecurity</h3><p>A practical guide for IT professionals looking to make the leap into security roles.</p></div>
+                <div class="card">
+                    <div class="card-tag">Threat Intelligence</div>
+                    <h3>The Rise of AI-Powered Phishing</h3>
+                    <p>Discover how threat actors are leveraging generative AI to craft highly convincing campaigns.</p>
+                    <a href="#" class="learn-more mega-link" data-id="ai-phishing">Read Article &rarr;</a>
+                </div>
+                <div class="card">
+                    <div class="card-tag">Career Advice</div>
+                    <h3>Transitioning from IT to Cybersecurity</h3>
+                    <p>A practical guide for IT professionals looking to make the leap into security roles.</p>
+                    <a href="#" class="learn-more mega-link" data-id="career-transition">Read Article &rarr;</a>
+                </div>
             </div>
         </div>
     </div>
@@ -166,7 +191,7 @@
             <div class="details-sidebar">
                 <div class="sidebar-box">
                     <h4>Why Choose Us?</h4>
-                    <p>Globally recognized certifications that prove your expertise and open doors to elite cybersecurity roles.</p>
+                    <p>We are the world's leading cybersecurity professional organization. Join millions of experts and elevate your career today.</p>
                 </div>
             </div>
         </div>
@@ -209,6 +234,8 @@
             <button class="btn-back back-to-home">&larr; Back to Home</button>
             <h2 style="color: #003b5c; margin-bottom: 20px;">My Profile</h2>
             <div class="profile-card">
+                <img id="prof-avatar" class="profile-avatar" src="" alt="Profile Picture" onerror="this.src='https://via.placeholder.com/100?text=Avatar'">
+                
                 <div class="profile-row"><span class="profile-label">Full Name:</span><span class="profile-value" id="prof-name"></span></div>
                 <div class="profile-row"><span class="profile-label">Country:</span><span class="profile-value" id="prof-country"></span></div>
                 <div class="profile-row"><span class="profile-label">Email:</span><span class="profile-value" id="prof-email"></span></div>
@@ -280,30 +307,64 @@
             <h2 style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;">Select Payment Method</h2>
             
             <div class="payment-options">
-                <label><input type="radio" name="pay-method" value="swift" checked> SWIFT Transfer</label>
-                <label><input type="radio" name="pay-method" value="card"> Visa/Mastercard</label>
+                <label><input type="radio" name="pay-method" value="card" checked> Visa/Mastercard</label>
                 <label><input type="radio" name="pay-method" value="paypal"> PayPal</label>
             </div>
 
             <form id="payment-form">
-                <div id="swift-info" class="payment-section active">
-                    <div class="input-group"><label>Bank Name</label><input type="text" required placeholder="e.g., Chase Bank"></div>
-                    <div class="input-group"><label>Account Number</label><input type="text" required placeholder="Enter Account Number"></div>
-                    <div class="input-group"><label>SWIFT / BIC Code</label><input type="text" required placeholder="Enter SWIFT Code"></div>
-                </div>
-                <div id="card-info" class="payment-section">
-                    <div class="input-group"><label>Name on Card</label><input type="text" placeholder="John Doe"></div>
-                    <div class="input-group"><label>Card Number</label><input type="text" placeholder="XXXX XXXX XXXX XXXX"></div>
+                <div id="card-info" class="payment-section active">
+                    <div class="input-group">
+                        <label>Name on Card</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="card-name" placeholder="NGUYEN VAN A">
+                            <span class="val-icon" id="icon-card-name"></span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Card Number</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX">
+                            <span class="val-icon" id="icon-card-number"></span>
+                        </div>
+                    </div>
                     <div style="display: flex; gap: 10px;">
-                        <div class="input-group" style="flex: 1;"><label>Expiry (MM/YY)</label><input type="text" placeholder="MM/YY"></div>
-                        <div class="input-group" style="flex: 1;"><label>CVV</label><input type="text" placeholder="123"></div>
+                        <div class="input-group" style="flex: 1;">
+                            <label>Expiry (MM/YY)</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="card-expiry" placeholder="MM/YY">
+                                <span class="val-icon" id="icon-card-expiry"></span>
+                            </div>
+                        </div>
+                        <div class="input-group" style="flex: 1;">
+                            <label>CVV</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="card-cvv" placeholder="123">
+                                <span class="val-icon" id="icon-card-cvv"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div id="paypal-info" class="payment-section">
-                    <div class="input-group"><label>PayPal Email Address</label><input type="email" placeholder="email@example.com"></div>
-                    <p style="font-size: 14px; color: #666;">You will be redirected to PayPal's secure login to authorize the payment after clicking Pay.</p>
+                    <div id="paypal-step-1">
+                        <div class="input-group">
+                            <label>PayPal Email Address</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="paypal-email" placeholder="email@example.com">
+                                <span class="val-icon" id="icon-paypal-email"></span>
+                            </div>
+                        </div>
+                        <p style="font-size: 14px; color: #666;">You will be required to scan a QR code to authorize the payment after clicking Next.</p>
+                    </div>
+                    
+                    <div id="paypal-step-2" style="display: none; text-align: center;">
+                        <p style="font-size: 16px; font-weight: bold; color: #003b5c; margin-bottom: 15px;">Scan QR Code to Authorize</p>
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPwVk6nt5ZjbBsN69UB_B52SXPWsGLg4e5HwCEvhdmXFtHTb7V9lPmuOl418ZhcphTh2TUnC6ofiGOVudWG3_ejy239UhpgB7UfW485Bj1fJulDZXhUfeYEFQGnU4xMKspay-P-YnPY5iNDhCKRomGv=w565-h618-s-no-gm?authuser=0" alt="QR Code" style="max-width: 200px; border: 1px solid #ddd; padding: 10px; border-radius: 8px;">
+                        <p style="font-size: 14px; color: #666; margin-top: 15px;">Once scanned and authorized on your mobile device, click Submit Payment to complete your order.</p>
+                    </div>
                 </div>
-                <button type="submit" class="btn-primary full-width" style="font-size: 18px; padding: 12px; margin-top: 10px;">Submit Payment</button>
+
+                <button type="submit" id="submit-payment-btn" class="btn-primary full-width" style="font-size: 18px; padding: 12px; margin-top: 10px;">Submit Payment</button>
             </form>
         </div>
     </div>
@@ -320,7 +381,7 @@
         <div class="modal-content" style="text-align: center; padding: 50px 30px;">
             <div id="lottie-payment-success" class="lottie-anim"></div>
             <h2 style="color: #28a745; margin-bottom: 15px;">Registration Successful!</h2>
-            <p style="color: #444; font-size: 16px; margin-bottom: 20px;">Processing may take 3–5 business days. Please check your email for more information.</p>
+            <p style="color: #444; font-size: 16px; margin-bottom: 20px;">Check your email for your official receipt and instructions.</p>
             <p style="color: #666; font-size: 14px;">Redirecting to your Purchase History in <strong id="countdown-timer" style="color: #007bff; font-size: 18px;">5</strong> seconds...</p>
         </div>
     </div>

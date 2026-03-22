@@ -12,7 +12,7 @@ header { background: #fff; border-bottom: 1px solid #e0e0e0; position: sticky; t
 .logo span { color: #007bff; }
 .nav-links { list-style: none; display: flex; gap: 20px; }
 .nav-item { position: relative; }
-.nav-item > a { color: #555; font-weight: 500; padding: 10px; }
+.nav-item > a { color: #555; font-weight: 500; padding: 10px; display: inline-block;}
 .nav-item > a:hover { color: #007bff; }
 
 /* MEGA MENU */
@@ -94,8 +94,9 @@ header { background: #fff; border-bottom: 1px solid #e0e0e0; position: sticky; t
 .history-price { font-weight: bold; color: #28a745; font-size: 18px; }
 .empty-history { text-align: center; color: #666; padding: 40px; background: #fff; border-radius: 8px; }
 
-/* PROFILE CARDS */
+/* PROFILE CARDS & AVATAR */
 .profile-card { max-width: 600px; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.profile-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; margin: 0 auto 20px; display: block; }
 .profile-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #eee; }
 .profile-row:last-child { border-bottom: none; }
 .profile-label { font-weight: bold; color: #555; }
@@ -134,4 +135,32 @@ footer { background: #003b5c; color: #fff; text-align: center; padding: 30px 0; 
     .mega-menu-content { flex-direction: column; gap: 15px; }
     .details-body { flex-direction: column; }
     .auth-buttons { display: none; } 
+}
+
+/* LIVE VALIDATION INPUTS */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-wrapper input {
+    width: 100%;
+    padding-right: 35px; /* Room for the icon */
+}
+.val-icon {
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.val-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #007bff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
 }
