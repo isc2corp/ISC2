@@ -1,42 +1,175 @@
 document.addEventListener("DOMContentLoaded", () => {
     
+    // --- TRANSLATIONS (i18n) DICTIONARY ---
+    const i18n = {
+        en: {
+            nav_cert: "Certifications ▾", nav_top_cert: "Top Certifications", nav_train_pkg: "Training Packages", 
+            nav_self: "Self-Paced Training", nav_inst: "Online Instructor-Led", nav_ent: "Enterprise Teams",
+            nav_train: "Training", nav_mem: "Membership", nav_ins: "Insights",
+            btn_signup: "Sign Up", btn_signin: "Sign In", drop_profile: "My Profile", drop_history: "Purchase History", drop_logout: "Log Out",
+            hero_title: "Advance Your Cybersecurity Career", hero_desc: "Join millions of professionals worldwide. Validate your expertise, build your network, and protect the digital world with our globally recognized certifications.",
+            hero_btn_mem: "Become a Member", hero_btn_cert: "Find a Certification",
+            home_cert_title: "Our Top Certifications", home_cert_sub: "Find the right path for your career stage and goals.",
+            tag_lead: "Leadership", tag_cloud: "Cloud", tag_entry: "Entry-Level", tag_op: "Operational", tag_comm: "Community", tag_res: "Resources", tag_sav: "Savings", tag_threat: "Threat Intelligence", tag_career: "Career Advice",
+            desc_cissp: "The gold standard in cybersecurity. Prove you have what it takes to design, implement, and manage a best-in-class cybersecurity program.",
+            desc_ccsp: "Showcase your advanced technical skills and knowledge to design, manage, and secure data, applications, and infrastructure in the cloud.",
+            desc_cc: "Start your career with confidence. This certification proves you have the foundational knowledge to secure modern networks.",
+            btn_learn: "Learn more →", btn_view: "View Details →", btn_read: "Read Article →", btn_back_home: "← Back to Home", btn_back_details: "← Back to Details",
+            train_title: "Training & Certification Catalog", train_sub: "Explore our comprehensive list of industry-leading certifications and flexible training packages designed to elevate your cybersecurity career.",
+            desc_cissp_short: "Validate your expertise in designing best-in-class programs.", desc_ccsp_short: "Demonstrate your advanced technical skills for the cloud.", desc_sscp_short: "Confirm your ability to implement and administer IT infrastructure.", desc_cc_short: "Prove you have the foundational knowledge for an entry-level role.",
+            mem_title: "CyberCert Pro Membership", mem_sub: "Connect with a global network of cybersecurity professionals, access exclusive resources, and accelerate your career.",
+            mem_net: "Global Networking", desc_net: "Connect with peers, mentors, and industry leaders through our private forums and local chapter events around the world.",
+            mem_res: "Exclusive Content", desc_res: "Gain free access to premium webinars, deep-dive research reports, and technical whitepapers.",
+            mem_disc: "Discounts", desc_disc: "Enjoy up to 20% off all training packages, exam vouchers, and conference tickets.",
+            ins_title: "Cybersecurity Insights & News", ins_sub: "Stay ahead of the curve with the latest threat research, career advice, and industry trends from our expert contributors.",
+            ins_phish: "The Rise of AI-Powered Phishing", desc_phish: "Discover how threat actors are leveraging generative AI to craft highly convincing campaigns.",
+            ins_career: "Transitioning from IT to Cybersecurity", desc_career: "A practical guide for IT professionals looking to make the leap into security roles.",
+            det_overview: "Overview", det_why: "Why Choose Us?", det_why_desc: "We are the world's leading cybersecurity professional organization. Join millions of experts and elevate your career today.",
+            chk_summary: "Order Summary", chk_pkg: "Package Includes:", chk_total: "Total Due:", btn_proceed: "Proceed to Secure Payment",
+            hist_title: "Purchase History", hist_empty: "No purchases yet!", hist_empty_sub: "Explore our certifications to get started.",
+            prof_title: "My Profile", prof_fname: "Full Name:", prof_country: "Country:", prof_email: "Email:", prof_phone: "Phone:", prof_status: "Status:", prof_active: "Active", prof_address: "Address:", prof_postal: "Postal Code:",
+            mod_login_title: "Sign In", mod_user: "Username", mod_pass: "Password", mod_show: "Show", mod_user_ph: "Enter username...", mod_pass_ph: "Enter password...",
+            mod_signup_title: "Create an Account", mod_fname: "Full Name", mod_email: "Email Address", mod_conf_pass: "Confirm Password",
+            pay_title: "Select Payment Method", pay_name: "Name on Card", pay_num: "Card Number", pay_exp: "Expiry (MM/YY)", pay_pp_email: "PayPal Email Address", pay_pp_desc: "You will be required to scan a QR code to authorize the payment after clicking Next.", pay_qr_title: "Scan QR Code to Authorize", pay_qr_desc: "Once scanned and authorized on your mobile device, click Submit Payment to complete your order.", btn_submit_pay: "Submit Payment", btn_next: "Next ->",
+            proc_title: "Please wait a moment...", proc_desc: "It will take time to verify your information.",
+            succ_reg: "Registration Successful!", succ_email: "Check your email for your official receipt and instructions.", succ_redir: "Redirecting to your Purchase History in", succ_sec: "seconds...", succ_signup: "Sign Up Successfully!", succ_redir_home: "Redirecting to homepage...",
+            alert_login: "Please Sign In or Sign Up before proceeding.", alert_member: "You are already a registered member!", alert_copy: "Article link copied to your clipboard!", alert_card: "Please correctly fill out your card details and wait for verification (Green Tick) before submitting.", alert_pp: "Please enter a valid PayPal email address and wait for verification (Green Tick).",
+            history_date: "Date", history_pkg: "Package", history_method: "Payment Method"
+        },
+        vi: {
+            nav_cert: "Chứng chỉ ▾", nav_top_cert: "Chứng chỉ Hàng đầu", nav_train_pkg: "Gói Đào tạo", 
+            nav_self: "Đào tạo Tự học", nav_inst: "Lớp học Trực tuyến", nav_ent: "Đào tạo Doanh nghiệp",
+            nav_train: "Đào tạo", nav_mem: "Thành viên", nav_ins: "Tin tức",
+            btn_signup: "Đăng ký", btn_signin: "Đăng nhập", drop_profile: "Hồ sơ của tôi", drop_history: "Lịch sử Mua hàng", drop_logout: "Đăng xuất",
+            hero_title: "Phát triển Sự nghiệp An ninh mạng của bạn", hero_desc: "Tham gia cùng hàng triệu chuyên gia. Chứng nhận chuyên môn, xây dựng mạng lưới và bảo vệ thế giới kỹ thuật số với các chứng chỉ toàn cầu.",
+            hero_btn_mem: "Trở thành Thành viên", hero_btn_cert: "Tìm Chứng chỉ",
+            home_cert_title: "Chứng chỉ Hàng đầu", home_cert_sub: "Tìm con đường phù hợp cho mục tiêu sự nghiệp của bạn.",
+            tag_lead: "Lãnh đạo", tag_cloud: "Đám mây", tag_entry: "Mới bắt đầu", tag_op: "Vận hành", tag_comm: "Cộng đồng", tag_res: "Tài nguyên", tag_sav: "Tiết kiệm", tag_threat: "Mối đe dọa", tag_career: "Nghề nghiệp",
+            desc_cissp: "Tiêu chuẩn vàng trong an ninh mạng. Chứng minh bạn có khả năng thiết kế và quản lý một chương trình bảo mật hàng đầu.",
+            desc_ccsp: "Thể hiện kỹ năng kỹ thuật tiên tiến để thiết kế, quản lý và bảo mật dữ liệu, ứng dụng và cơ sở hạ tầng trên đám mây.",
+            desc_cc: "Bắt đầu sự nghiệp của bạn với sự tự tin. Chứng chỉ này chứng minh bạn có kiến thức nền tảng để bảo mật các mạng hiện đại.",
+            btn_learn: "Tìm hiểu thêm →", btn_view: "Xem chi tiết →", btn_read: "Đọc bài viết →", btn_back_home: "← Về Trang chủ", btn_back_details: "← Trở lại Chi tiết",
+            train_title: "Danh mục Đào tạo & Chứng chỉ", train_sub: "Khám phá danh sách các chứng chỉ hàng đầu và các gói đào tạo linh hoạt được thiết kế để nâng cao sự nghiệp của bạn.",
+            desc_cissp_short: "Xác nhận chuyên môn trong việc thiết kế các chương trình bảo mật.", desc_ccsp_short: "Thể hiện kỹ năng kỹ thuật đám mây tiên tiến của bạn.", desc_sscp_short: "Xác nhận khả năng triển khai và quản trị cơ sở hạ tầng CNTT.", desc_cc_short: "Chứng minh bạn có kiến thức nền tảng cho vai trò an ninh mạng.",
+            mem_title: "Thành viên CyberCert Pro", mem_sub: "Kết nối với mạng lưới chuyên gia toàn cầu, truy cập tài nguyên độc quyền và thúc đẩy sự nghiệp của bạn.",
+            mem_net: "Mạng lưới Toàn cầu", desc_net: "Kết nối với đồng nghiệp, người hướng dẫn qua các diễn đàn và sự kiện toàn cầu.",
+            mem_res: "Nội dung Độc quyền", desc_res: "Truy cập miễn phí các hội thảo trên web, báo cáo nghiên cứu và tài liệu kỹ thuật.",
+            mem_disc: "Giảm giá", desc_disc: "Giảm tới 20% cho tất cả các gói đào tạo, voucher thi và vé hội nghị.",
+            ins_title: "Tin tức & Thông tin chi tiết", ins_sub: "Nắm bắt các xu hướng mới nhất về mối đe dọa, lời khuyên nghề nghiệp từ các chuyên gia.",
+            ins_phish: "Sự gia tăng của Phishing bằng AI", desc_phish: "Khám phá cách tin tặc đang sử dụng AI để tạo ra các chiến dịch lừa đảo.",
+            ins_career: "Chuyển từ CNTT sang An ninh mạng", desc_career: "Hướng dẫn thực tế cho chuyên gia CNTT muốn chuyển sang vai trò bảo mật.",
+            det_overview: "Tổng quan", det_why: "Tại sao chọn chúng tôi?", det_why_desc: "Chúng tôi là tổ chức chuyên gia an ninh mạng hàng đầu thế giới. Hãy tham gia và nâng tầm sự nghiệp của bạn ngay hôm nay.",
+            chk_summary: "Tóm tắt Đơn hàng", chk_pkg: "Gói bao gồm:", chk_total: "Tổng cộng:", btn_proceed: "Tiến hành Thanh toán Bảo mật",
+            hist_title: "Lịch sử Mua hàng", hist_empty: "Chưa có đơn hàng nào!", hist_empty_sub: "Khám phá các chứng chỉ của chúng tôi để bắt đầu.",
+            prof_title: "Hồ sơ của tôi", prof_fname: "Họ và Tên:", prof_country: "Quốc gia:", prof_email: "Email:", prof_phone: "Điện thoại:", prof_status: "Trạng thái:", prof_active: "Hoạt động", prof_address: "Địa chỉ:", prof_postal: "Mã bưu điện:",
+            mod_login_title: "Đăng nhập", mod_user: "Tên đăng nhập", mod_pass: "Mật khẩu", mod_show: "Hiện", mod_user_ph: "Nhập tên đăng nhập...", mod_pass_ph: "Nhập mật khẩu...",
+            mod_signup_title: "Tạo tài khoản", mod_fname: "Họ và Tên", mod_email: "Địa chỉ Email", mod_conf_pass: "Xác nhận Mật khẩu",
+            pay_title: "Chọn Phương thức Thanh toán", pay_name: "Tên trên Thẻ", pay_num: "Số Thẻ", pay_exp: "Hết hạn (MM/YY)", pay_pp_email: "Địa chỉ Email PayPal", pay_pp_desc: "Bạn sẽ cần quét mã QR để ủy quyền thanh toán sau khi nhấp vào Tiếp theo.", pay_qr_title: "Quét mã QR để Ủy quyền", pay_qr_desc: "Sau khi quét và ủy quyền trên thiết bị di động của bạn, nhấp vào Xác nhận Thanh toán để hoàn tất.", btn_submit_pay: "Xác nhận Thanh toán", btn_next: "Tiếp theo ->",
+            proc_title: "Vui lòng đợi một lát...", proc_desc: "Hệ thống cần thời gian để xác minh thông tin của bạn.",
+            succ_reg: "Đăng ký Thành công!", succ_email: "Kiểm tra email của bạn để nhận biên lai và hướng dẫn chính thức.", succ_redir: "Chuyển hướng đến Lịch sử mua hàng trong", succ_sec: "giây...", succ_signup: "Đăng ký Thành công!", succ_redir_home: "Chuyển hướng về trang chủ...",
+            alert_login: "Vui lòng Đăng nhập hoặc Đăng ký trước khi thanh toán.", alert_member: "Bạn đã là thành viên đăng ký!", alert_copy: "Đã sao chép liên kết bài viết vào khay nhớ tạm!", alert_card: "Vui lòng điền đúng thông tin thẻ và đợi xác minh (Dấu tích xanh) trước khi gửi.", alert_pp: "Vui lòng nhập email PayPal hợp lệ và đợi xác minh (Dấu tích xanh).",
+            history_date: "Ngày", history_pkg: "Gói", history_method: "Phương thức"
+        }
+    };
+
+    let currentLang = localStorage.getItem("cyberCertLang") || "en";
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem("cyberCertLang", lang);
+        
+        // Toggle Active Class
+        document.getElementById("lang-en").classList.toggle("active", lang === "en");
+        document.getElementById("lang-vi").classList.toggle("active", lang === "vi");
+
+        // Update DOM elements based on data-i18n attribute
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.getAttribute("data-i18n");
+            if (i18n[lang] && i18n[lang][key]) {
+                if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
+                    el.setAttribute("placeholder", i18n[lang][key]);
+                } else {
+                    el.innerHTML = i18n[lang][key];
+                }
+            }
+        });
+
+        // Re-render dynamic pages to show translated content
+        if (currentSelectionId && document.getElementById("details-view").style.display === "block") loadPage(currentSelectionId);
+        if (document.getElementById("history-view").style.display === "block") showPurchaseHistory();
+    }
+
+    // Bind Toggle Clicks
+    document.getElementById("lang-en").addEventListener("click", () => setLanguage("en"));
+    document.getElementById("lang-vi").addEventListener("click", () => setLanguage("vi"));
+
     // --- INLINE LOTTIE JSON DATA ---
     const successAnimationData = {"nm":"HDFC Success","mn":"","layers":[{"ty":4,"nm":"check","mn":"","sr":1,"st":0,"op":240,"ip":0,"hd":false,"cl":"","ln":"","ddd":0,"bm":0,"hasMask":false,"ao":0,"ks":{"a":{"a":0,"k":[0,0,0],"ix":1},"s":{"a":0,"k":[100,100,100],"ix":6},"sk":{"a":0,"k":0},"p":{"a":0,"k":[256,256,0],"ix":2},"sa":{"a":0,"k":0},"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10}},"ef":[],"shapes":[{"ty":"gr","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Group","nm":"Shape 1","ix":1,"cix":2,"np":4,"it":[{"ty":"sh","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Shape - Group","nm":"Path 1","ix":1,"d":1,"ks":{"a":0,"k":{"c":false,"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-82.5,4.5],[-31,55],[73,-52.5]]},"ix":2}},{"ty":"tm","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Filter - Trim","nm":"Trim Paths 1","ix":2,"e":{"a":1,"k":[{"o":{"x":1,"y":0.076},"i":{"x":0.667,"y":1},"s":[0],"t":60},{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[100],"t":85}],"ix":2},"o":{"a":0,"k":0,"ix":3},"s":{"a":0,"k":0,"ix":1},"m":1},{"ty":"st","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Graphic - Stroke","nm":"Stroke 1","lc":2,"lj":2,"ml":1,"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":30,"ix":5},"d":[],"c":{"a":0,"k":[1,1,1],"ix":3}},{"ty":"tr","a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"sk":{"a":0,"k":0,"ix":4},"p":{"a":0,"k":[0,0],"ix":2},"r":{"a":0,"k":0,"ix":6},"sa":{"a":0,"k":0,"ix":5},"o":{"a":0,"k":100,"ix":7}}]}],"ind":1},{"ty":4,"nm":"Shape Layer 2","mn":"","sr":1,"st":0,"op":240,"ip":0,"hd":false,"cl":"","ln":"","ddd":0,"bm":0,"hasMask":false,"ao":0,"ks":{"a":{"a":0,"k":[0,0,0],"ix":1},"s":{"a":1,"k":[{"o":{"x":0.656,"y":0.872},"i":{"x":0,"y":0.98},"s":[0,0,100],"t":20},{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[150,150,100],"t":60}],"ix":6},"sk":{"a":0,"k":0},"p":{"a":0,"k":[256,257.86,0],"ix":2},"sa":{"a":0,"k":0},"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10}},"ef":[],"shapes":[{"ty":"gr","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Group","nm":"Ellipse 1","ix":1,"cix":2,"np":3,"it":[{"ty":"el","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Shape - Ellipse","nm":"Ellipse Path 1","d":1,"p":{"a":0,"k":[0,0],"ix":3},"s":{"a":0,"k":[236,236],"ix":2}},{"ty":"fl","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Graphic - Fill","nm":"Fill 1","c":{"a":0,"k":[0.2863,0.7176,0.4353],"ix":4},"r":1,"o":{"a":0,"k":100,"ix":5}},{"ty":"tr","a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"sk":{"a":0,"k":0,"ix":4},"p":{"a":0,"k":[0,-3],"ix":2},"r":{"a":0,"k":0,"ix":6},"sa":{"a":0,"k":0,"ix":5},"o":{"a":0,"k":100,"ix":7}}]}],"ind":2},{"ty":4,"nm":"Shape Layer 1","mn":"","sr":1,"st":0,"op":240,"ip":0,"hd":false,"cl":"","ln":"","ddd":0,"bm":0,"hasMask":false,"ao":0,"ks":{"a":{"a":0,"k":[0,0,0],"ix":1},"s":{"a":1,"k":[{"o":{"x":0.477,"y":0.587},"i":{"x":0,"y":0.999},"s":[0,0,100],"t":10},{"o":{"x":0.167,"y":0},"i":{"x":0.833,"y":1},"s":[150,150,100],"t":50},{"o":{"x":0.167,"y":0},"i":{"x":0.833,"y":1},"s":[150,150,100],"t":76},{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[210,210,100],"t":123}],"ix":6},"sk":{"a":0,"k":0},"p":{"a":0,"k":[256,257.86,0],"ix":2},"sa":{"a":0,"k":0},"o":{"a":1,"k":[{"o":{"x":0.912,"y":0.073},"i":{"x":0.626,"y":0.729},"s":[100],"t":76},{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[0],"t":119}],"ix":11},"r":{"a":0,"k":0,"ix":10}},"ef":[],"shapes":[{"ty":"gr","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Group","nm":"Ellipse 1","ix":1,"cix":2,"np":3,"it":[{"ty":"el","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Shape - Ellipse","nm":"Ellipse Path 1","d":1,"p":{"a":0,"k":[0,0],"ix":3},"s":{"a":0,"k":[236,236],"ix":2}},{"ty":"st","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Graphic - Stroke","nm":"Stroke 1","lc":1,"lj":1,"ml":4,"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":2,"ix":5},"d":[],"c":{"a":0,"k":[1,1,1],"ix":3}},{"ty":"fl","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Graphic - Fill","nm":"Fill 1","c":{"a":0,"k":[0.7569,0.9216,0.8157],"ix":4},"r":1,"o":{"a":0,"k":100,"ix":5}},{"ty":"tr","a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"sk":{"a":0,"k":0,"ix":4},"p":{"a":0,"k":[0,-3],"ix":2},"r":{"a":0,"k":0,"ix":6},"sa":{"a":0,"k":0,"ix":5},"o":{"a":0,"k":100,"ix":7}}]}],"ind":3},{"ty":4,"nm":"BG","mn":"","sr":1,"st":0,"op":240,"ip":240,"hd":false,"cl":"","ln":"","ddd":0,"bm":0,"hasMask":false,"ao":0,"ks":{"a":{"a":0,"k":[0,0,0],"ix":1},"s":{"a":0,"k":[100,100,100],"ix":6},"sk":{"a":0,"k":0},"p":{"a":0,"k":[256,256,0],"ix":2},"sa":{"a":0,"k":0},"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10}},"ef":[],"shapes":[{"ty":"gr","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Group","nm":"Rectangle 1","ix":1,"cix":2,"np":3,"it":[{"ty":"rc","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Shape - Rect","nm":"Rectangle Path 1","d":1,"p":{"a":0,"k":[0,0],"ix":3},"r":{"a":0,"k":0,"ix":4},"s":{"a":0,"k":[554,556],"ix":2}},{"ty":"fl","bm":0,"cl":"","ln":"","hd":false,"mn":"ADBE Vector Graphic - Fill","nm":"Fill 1","c":{"a":0,"k":[1,1,1],"ix":4},"r":1,"o":{"a":0,"k":100,"ix":5}},{"ty":"tr","a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"sk":{"a":0,"k":0,"ix":4},"p":{"a":0,"k":[-1,6],"ix":2},"r":{"a":0,"k":0,"ix":6},"sa":{"a":0,"k":0,"ix":5},"o":{"a":0,"k":100,"ix":7}}]}],"ind":4}],"ddd":0,"h":512,"w":512,"meta":{"a":"","k":"","d":"","g":"LottieFiles AE 1.0.0","tc":"#000000"},"v":"4.8.0","fr":60,"op":130,"ip":0,"assets":[]};
 
-    const paymentSuccessAnim = lottie.loadAnimation({
-        container: document.getElementById('lottie-payment-success'), renderer: 'svg', loop: false, autoplay: false, animationData: successAnimationData
-    });
-    const signupSuccessAnim = lottie.loadAnimation({
-        container: document.getElementById('lottie-signup-success'), renderer: 'svg', loop: false, autoplay: false, animationData: successAnimationData
-    });
+    const paymentSuccessAnim = lottie.loadAnimation({ container: document.getElementById('lottie-payment-success'), renderer: 'svg', loop: false, autoplay: false, animationData: successAnimationData });
+    const signupSuccessAnim = lottie.loadAnimation({ container: document.getElementById('lottie-signup-success'), renderer: 'svg', loop: false, autoplay: false, animationData: successAnimationData });
 
-    // --- DATA DICTIONARY ---
+    // --- BILINGUAL DATA DICTIONARY ---
     const pageData = {
-        // Certifications & Training
-        "cissp": { title: "CISSP", subtitle: "Certified Information Systems Security Professional", description: "Accelerate your cybersecurity career with the CISSP certification.", bullets: ["Ideal for experienced security practitioners.", "Covers 8 domains including Security and Risk Management.", "Requires 5 years of experience."], price: "$720", packageDetails: "Includes Exam Voucher & Self-Paced Training" },
-        "ccsp": { title: "CCSP", subtitle: "Certified Cloud Security Professional", description: "Earning the globally recognized CCSP cloud security certification is a proven way to build your career.", bullets: ["Ideal for enterprise architects.", "Covers 6 domains.", "Requires 5 years experience."], price: "$599", packageDetails: "Includes Exam Voucher & Official Study Guide" },
-        "sscp": { title: "SSCP", subtitle: "Systems Security Certified Practitioner", description: "The SSCP is the ideal certification for those with proven technical skills.", bullets: ["Ideal for Network Security Engineers.", "Covers 7 domains.", "Requires 1 year experience."], price: "$249", packageDetails: "Includes Exam Voucher" },
-        "cc": { title: "Certified in Cybersecurity (CC)", subtitle: "Your First Step to a Rewarding Career", description: "You don't need experience — just the passion and drive.", bullets: ["Perfect for students.", "No prior experience required.", "Covers Security Principles."], price: "Free", packageDetails: "Includes Free Exam Voucher & Online Training" },
-        "self-paced": { title: "Self-Paced Training", subtitle: "Learn at your own speed", description: "180-day access to comprehensive learning materials.", bullets: ["180-day access.", "Includes flashcards.", "Available for all major certs."], price: "$895", packageDetails: "Full Online Access" },
-        "instructor-led": { title: "Online Instructor-Led Training", subtitle: "Learn from industry experts", description: "Live interaction with authorized instructors.", bullets: ["Live virtual classroom.", "Taught by authorized experts.", "Includes official courseware."], price: "$2,495", packageDetails: "Live Classes + Materials" },
-        "enterprise": { title: "Enterprise Teams", subtitle: "Customized training", description: "Empower your entire team.", bullets: ["Private group training.", "Volume discounts.", "Dedicated account manager."], price: "Custom Quote", packageDetails: "Contact Sales for Pricing" },
-        // Membership
-        "networking": { title: "Global Networking", subtitle: "Connect with cybersecurity professionals worldwide.", description: "Join a thriving community of experts. Our private forums and local chapters provide opportunities to share knowledge, find mentors, and collaborate on projects.", bullets: ["Access to private member-only forums.", "Invitations to exclusive local chapter meetups.", "Mentorship programs for career growth."], buttonText: "Become a Member" },
-        "resources": { title: "Exclusive Content", subtitle: "Stay ahead with premium resources.", description: "Gain free access to our extensive library of cybersecurity resources.", bullets: ["Monthly premium webinars.", "Deep-dive research reports.", "Technical whitepapers and templates."], buttonText: "Become a Member" },
-        "discounts": { title: "Member Discounts", subtitle: "Save on your professional development.", description: "Enjoy substantial savings on training, exams, and events.", bullets: ["Up to 20% off training packages.", "Discounted exam vouchers.", "Reduced rates for global conferences."], buttonText: "Become a Member" },
-        // Insights
-        "ai-phishing": { title: "The Rise of AI-Powered Phishing", subtitle: "Threat Intelligence Report", description: "Threat actors are increasingly using generative AI to craft highly convincing phishing emails. These AI-generated lures often bypass traditional spam filters by using perfect grammar and personalized context gathered from social media. To defend against this, organizations must implement advanced email security solutions and conduct frequent, randomized phishing simulations.", bullets: ["AI generates convincing, error-free lures.", "Traditional filters struggle to detect context-aware attacks.", "Defense requires continuous employee training."], buttonText: "Share Article" },
-        "career-transition": { title: "Transitioning from IT to Cybersecurity", subtitle: "Career Advice Guide", description: "Making the leap from a general IT role to a specialized cybersecurity position requires a strategic approach. Start by mastering the fundamentals of networking and operating systems. Then, pursue foundational certifications like the CC or SSCP to validate your knowledge. Finally, seek out hands-on experience through homelabs and internal projects at your current company.", bullets: ["Master networking and OS fundamentals first.", "Earn foundational certifications (CC, SSCP).", "Build practical experience with homelabs."], buttonText: "Share Article" }
+        "cissp": { 
+            en: { title: "CISSP", subtitle: "Certified Information Systems Security Professional", description: "Accelerate your cybersecurity career with the CISSP certification.", bullets: ["Ideal for experienced security practitioners.", "Covers 8 domains including Security and Risk Management.", "Requires 5 years of experience."], price: "$720", packageDetails: "Includes Exam Voucher & Self-Paced Training" },
+            vi: { title: "CISSP", subtitle: "Chuyên gia Bảo mật Hệ thống Thông tin", description: "Đẩy nhanh sự nghiệp an ninh mạng với chứng chỉ CISSP.", bullets: ["Lý tưởng cho chuyên gia bảo mật có kinh nghiệm.", "Bao gồm 8 lĩnh vực quản lý rủi ro.", "Yêu cầu 5 năm kinh nghiệm."], price: "$720", packageDetails: "Bao gồm Voucher thi & Đào tạo tự học" }
+        },
+        "ccsp": { 
+            en: { title: "CCSP", subtitle: "Certified Cloud Security Professional", description: "Earning the globally recognized CCSP cloud security certification is a proven way to build your career.", bullets: ["Ideal for enterprise architects.", "Covers 6 domains.", "Requires 5 years experience."], price: "$599", packageDetails: "Includes Exam Voucher & Official Study Guide" },
+            vi: { title: "CCSP", subtitle: "Chuyên gia Bảo mật Đám mây", description: "Đạt chứng chỉ CCSP được công nhận toàn cầu để thăng tiến sự nghiệp.", bullets: ["Lý tưởng cho kiến trúc sư doanh nghiệp.", "Bao gồm 6 lĩnh vực.", "Yêu cầu 5 năm kinh nghiệm."], price: "$599", packageDetails: "Bao gồm Voucher thi & Hướng dẫn học chính thức" }
+        },
+        "sscp": { 
+            en: { title: "SSCP", subtitle: "Systems Security Certified Practitioner", description: "The SSCP is the ideal certification for those with proven technical skills.", bullets: ["Ideal for Network Security Engineers.", "Covers 7 domains.", "Requires 1 year experience."], price: "$249", packageDetails: "Includes Exam Voucher" },
+            vi: { title: "SSCP", subtitle: "Chuyên gia Thực hành Bảo mật Hệ thống", description: "SSCP là chứng chỉ lý tưởng cho những người có kỹ năng kỹ thuật thực tế.", bullets: ["Lý tưởng cho Kỹ sư Bảo mật Mạng.", "Bao gồm 7 lĩnh vực.", "Yêu cầu 1 năm kinh nghiệm."], price: "$249", packageDetails: "Bao gồm Voucher thi" }
+        },
+        "cc": { 
+            en: { title: "Certified in Cybersecurity (CC)", subtitle: "Your First Step to a Rewarding Career", description: "You don't need experience — just the passion and drive.", bullets: ["Perfect for students.", "No prior experience required.", "Covers Security Principles."], price: "Free", packageDetails: "Includes Free Exam Voucher & Online Training" },
+            vi: { title: "Chứng nhận An ninh mạng (CC)", subtitle: "Bước đầu tiên cho sự nghiệp", description: "Bạn không cần kinh nghiệm — chỉ cần đam mê.", bullets: ["Hoàn hảo cho sinh viên.", "Không yêu cầu kinh nghiệm trước.", "Bao gồm Nguyên tắc Bảo mật."], price: "Miễn phí", packageDetails: "Bao gồm Voucher thi miễn phí & Đào tạo trực tuyến" }
+        },
+        "self-paced": { 
+            en: { title: "Self-Paced Training", subtitle: "Learn at your own speed", description: "180-day access to comprehensive learning materials.", bullets: ["180-day access.", "Includes flashcards.", "Available for all major certs."], price: "$895", packageDetails: "Full Online Access" },
+            vi: { title: "Đào tạo Tự học", subtitle: "Học theo tốc độ của bạn", description: "Truy cập 180 ngày vào tài liệu học tập toàn diện.", bullets: ["Truy cập 180 ngày.", "Bao gồm thẻ ghi nhớ.", "Có sẵn cho tất cả chứng chỉ."], price: "$895", packageDetails: "Truy cập trực tuyến đầy đủ" }
+        },
+        "instructor-led": { 
+            en: { title: "Online Instructor-Led Training", subtitle: "Learn from industry experts", description: "Live interaction with authorized instructors.", bullets: ["Live virtual classroom.", "Taught by authorized experts.", "Includes official courseware."], price: "$2,495", packageDetails: "Live Classes + Materials" },
+            vi: { title: "Lớp học Trực tuyến", subtitle: "Học từ các chuyên gia trong ngành", description: "Tương tác trực tiếp với các giảng viên được ủy quyền.", bullets: ["Lớp học ảo trực tiếp.", "Được giảng dạy bởi chuyên gia.", "Bao gồm tài liệu chính thức."], price: "$2,495", packageDetails: "Lớp học trực tiếp + Tài liệu" }
+        },
+        "enterprise": { 
+            en: { title: "Enterprise Teams", subtitle: "Customized training", description: "Empower your entire team.", bullets: ["Private group training.", "Volume discounts.", "Dedicated account manager."], price: "Custom Quote", packageDetails: "Contact Sales for Pricing" },
+            vi: { title: "Đội ngũ Doanh nghiệp", subtitle: "Đào tạo tùy chỉnh", description: "Trao quyền cho toàn bộ đội ngũ của bạn.", bullets: ["Đào tạo nhóm riêng.", "Giảm giá số lượng lớn.", "Quản lý tài khoản chuyên trách."], price: "Báo giá tùy chỉnh", packageDetails: "Liên hệ Bộ phận Bán hàng" }
+        },
+        "networking": { 
+            en: { title: "Global Networking", subtitle: "Connect with cybersecurity professionals worldwide.", description: "Join a thriving community of experts. Our private forums and local chapters provide opportunities.", bullets: ["Access to private member-only forums.", "Invitations to exclusive local chapter meetups.", "Mentorship programs for career growth."], buttonText: "Become a Member" },
+            vi: { title: "Mạng lưới Toàn cầu", subtitle: "Kết nối với chuyên gia an ninh mạng trên toàn thế giới.", description: "Tham gia cộng đồng phát triển mạnh mẽ. Diễn đàn và hội thảo cung cấp nhiều cơ hội.", bullets: ["Truy cập diễn đàn nội bộ.", "Lời mời tham gia sự kiện độc quyền.", "Chương trình cố vấn nghề nghiệp."], buttonText: "Trở thành Thành viên" }
+        },
+        "resources": { 
+            en: { title: "Exclusive Content", subtitle: "Stay ahead with premium resources.", description: "Gain free access to our extensive library of cybersecurity resources.", bullets: ["Monthly premium webinars.", "Deep-dive research reports.", "Technical whitepapers and templates."], buttonText: "Become a Member" },
+            vi: { title: "Nội dung Độc quyền", subtitle: "Đi trước với tài nguyên cao cấp.", description: "Truy cập miễn phí thư viện tài nguyên an ninh mạng phong phú.", bullets: ["Hội thảo trên web hàng tháng.", "Báo cáo nghiên cứu chuyên sâu.", "Tài liệu kỹ thuật và mẫu."], buttonText: "Trở thành Thành viên" }
+        },
+        "discounts": { 
+            en: { title: "Member Discounts", subtitle: "Save on your professional development.", description: "Enjoy substantial savings on training, exams, and events.", bullets: ["Up to 20% off training packages.", "Discounted exam vouchers.", "Reduced rates for global conferences."], buttonText: "Become a Member" },
+            vi: { title: "Giảm giá", subtitle: "Tiết kiệm chi phí phát triển chuyên môn.", description: "Tiết kiệm đáng kể cho các khóa học, kỳ thi và sự kiện.", bullets: ["Giảm đến 20% cho gói đào tạo.", "Giảm giá voucher thi.", "Giá ưu đãi cho hội nghị toàn cầu."], buttonText: "Trở thành Thành viên" }
+        },
+        "ai-phishing": { 
+            en: { title: "The Rise of AI-Powered Phishing", subtitle: "Threat Intelligence Report", description: "Threat actors are increasingly using generative AI to craft highly convincing phishing emails.", bullets: ["AI generates convincing, error-free lures.", "Traditional filters struggle to detect context-aware attacks.", "Defense requires continuous employee training."], buttonText: "Share Article" },
+            vi: { title: "Sự gia tăng của Phishing bằng AI", subtitle: "Báo cáo Mối đe dọa", description: "Tin tặc đang sử dụng AI để tạo ra các email lừa đảo cực kỳ tinh vi.", bullets: ["AI tạo ra email lừa đảo không có lỗi chính tả.", "Bộ lọc truyền thống khó phát hiện tấn công theo ngữ cảnh.", "Phòng thủ yêu cầu đào tạo nhân viên liên tục."], buttonText: "Chia sẻ bài viết" }
+        },
+        "career-transition": { 
+            en: { title: "Transitioning from IT to Cybersecurity", subtitle: "Career Advice Guide", description: "Making the leap from a general IT role to a specialized cybersecurity position requires a strategic approach.", bullets: ["Master networking and OS fundamentals first.", "Earn foundational certifications (CC, SSCP).", "Build practical experience with homelabs."], buttonText: "Share Article" },
+            vi: { title: "Chuyển từ CNTT sang An ninh mạng", subtitle: "Hướng dẫn Nghề nghiệp", description: "Việc chuyển từ vai trò CNTT chung sang an ninh mạng đòi hỏi chiến lược cụ thể.", bullets: ["Làm chủ nền tảng mạng và hệ điều hành.", "Đạt chứng chỉ cơ bản (CC, SSCP).", "Xây dựng kinh nghiệm thực tế qua homelab."], buttonText: "Chia sẻ bài viết" }
+        }
     };
 
     // --- STATE MANAGEMENT ---
     let currentUserProfile = null;
     let currentSelectionId = null; 
 
+    // REQUIRED DEFAULT PROFILE!
     const defaultProfile = {
-        username: "DemoUser", fullName: "NGUYEN VAN A", country: "🇻🇳 Viet Nam", 
+        username: "DemoUser", fullName: "NGUYEN MINH QUANG", country: "Viet Nam", 
         email: "24022718@vnu.edu.vn", phone: "+84967668507", address: "Huong Canh, Vinh Phuc", postal: "280000", purchaseHistory: [],
-        avatar: "https://googleusercontent.com/profile/picture/0" // Included avatar URL
+        avatar: "https://googleusercontent.com/profile/picture/0" 
     };
 
     // --- DOM ELEMENTS ---
@@ -48,12 +181,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const trainingView = document.getElementById("training-view");
     const membershipView = document.getElementById("membership-view");
     const insightsView = document.getElementById("insights-view");
-    
     const certMenu = document.getElementById("cert-mega-menu");
     const certLink = document.getElementById("cert-link");
     const backBtns = document.querySelectorAll(".back-to-home");
+    const pageLoader = document.getElementById("page-loader"); 
 
-    // Details/Checkout Elements
     const detailsTitle = document.getElementById("details-title");
     const detailsSubtitle = document.getElementById("details-subtitle");
     const detailsDesc = document.getElementById("details-description");
@@ -63,12 +195,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutDesc = document.getElementById("checkout-desc");
     const checkoutPrice = document.getElementById("checkout-price");
 
-    // Auth Elements
     const authButtons = document.getElementById("auth-buttons");
     const userMenu = document.getElementById("user-menu");
     const usernameBtn = document.getElementById("username-btn");
 
-    // --- LOCAL STORAGE INITIALIZATION ---
+    // Initialize UI Text based on Lang
+    setLanguage(currentLang);
+
     const savedUser = localStorage.getItem("cyberCertUser");
     if (savedUser) {
         currentUserProfile = JSON.parse(savedUser);
@@ -78,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
         userMenu.style.display = "block";
     }
 
-    // --- NAVIGATION LOGIC ---
+    // --- NAVIGATION LOGIC WITH SIMULATED ONLINE DELAY ---
     function hideAllViews() {
         homeView.style.display = "none";
         detailsView.style.display = "none";
@@ -91,74 +224,88 @@ document.addEventListener("DOMContentLoaded", () => {
         certMenu.style.display = "none";
     }
 
+    function navigateTo(showViewCallback) {
+        pageLoader.style.display = "flex";
+        const delay = Math.floor(Math.random() * 400) + 300; 
+        setTimeout(() => {
+            hideAllViews();
+            showViewCallback();
+            pageLoader.style.display = "none";
+            window.scrollTo(0, 0);
+        }, delay);
+    }
+
     function loadPage(pageId) {
         currentSelectionId = pageId; 
-        const data = pageData[pageId];
-        if (data) {
-            detailsTitle.textContent = data.title;
-            detailsSubtitle.textContent = data.subtitle;
-            detailsDesc.textContent = data.description;
-            
-            detailsList.innerHTML = "";
-            data.bullets.forEach(b => { const li = document.createElement("li"); li.textContent = b; detailsList.appendChild(li); });
-            
-            if (data.price) {
-                detailsRegisterBtn.style.display = "block";
-                detailsRegisterBtn.textContent = "Register Now";
-            } else if (data.buttonText) {
-                detailsRegisterBtn.style.display = "block";
-                detailsRegisterBtn.textContent = data.buttonText;
-            } else {
-                detailsRegisterBtn.style.display = "none";
-            }
-
-            hideAllViews();
-            detailsView.style.display = "block";
-            window.scrollTo(0, 0);
+        const rootData = pageData[pageId];
+        if (rootData) {
+            navigateTo(() => {
+                const data = rootData[currentLang]; // Fetch language-specific data
+                detailsTitle.textContent = data.title;
+                detailsSubtitle.textContent = data.subtitle;
+                detailsDesc.textContent = data.description;
+                
+                detailsList.innerHTML = "";
+                data.bullets.forEach(b => { const li = document.createElement("li"); li.textContent = b; detailsList.appendChild(li); });
+                
+                if (data.price) {
+                    detailsRegisterBtn.style.display = "block";
+                    detailsRegisterBtn.textContent = i18n[currentLang].btn_signup !== "Đăng ký" ? "Register Now" : "Đăng ký Ngay"; // Logic based hack for translation
+                } else if (data.buttonText) {
+                    detailsRegisterBtn.style.display = "block";
+                    detailsRegisterBtn.textContent = data.buttonText;
+                } else {
+                    detailsRegisterBtn.style.display = "none";
+                }
+                detailsView.style.display = "block";
+            });
         }
     }
 
     function showPurchaseHistory() {
-        if (!currentUserProfile) { alert("Please log in to view your purchase history."); return; }
-        hideAllViews();
-        const container = document.getElementById("history-container");
-        container.innerHTML = ""; 
+        if (!currentUserProfile) { alert(i18n[currentLang].alert_login); return; }
+        
+        navigateTo(() => {
+            const container = document.getElementById("history-container");
+            container.innerHTML = ""; 
 
-        if (currentUserProfile.purchaseHistory.length === 0) {
-            container.innerHTML = `<div class="empty-history"><h3>No purchases yet!</h3><p>Explore our certifications to get started.</p></div>`;
-        } else {
-            const sortedHistory = [...currentUserProfile.purchaseHistory].reverse();
-            sortedHistory.forEach(item => {
-                const card = document.createElement("div");
-                card.className = "history-card";
-                card.innerHTML = `
-                    <div class="history-header"><span class="history-title">${item.title}</span><span class="history-price">${item.price}</span></div>
-                    <div style="color: #555; font-size: 15px; margin-bottom: 5px;"><strong>Date:</strong> ${item.date}</div>
-                    <div style="color: #555; font-size: 15px; margin-bottom: 5px;"><strong>Package:</strong> ${item.packageDetails}</div>
-                    <div style="color: #555; font-size: 15px;"><strong>Payment Method:</strong> ${item.method.toUpperCase()}</div>
-                `;
-                container.appendChild(card);
-            });
-        }
-        historyView.style.display = "block";
-        document.getElementById("user-dropdown").style.display = "none";
-        window.scrollTo(0, 0);
+            if (currentUserProfile.purchaseHistory.length === 0) {
+                container.innerHTML = `<div class="empty-history"><h3>${i18n[currentLang].hist_empty}</h3><p>${i18n[currentLang].hist_empty_sub}</p></div>`;
+            } else {
+                const sortedHistory = [...currentUserProfile.purchaseHistory].reverse();
+                sortedHistory.forEach(item => {
+                    const card = document.createElement("div");
+                    card.className = "history-card";
+                    card.innerHTML = `
+                        <div class="history-header"><span class="history-title">${item.title}</span><span class="history-price">${item.price}</span></div>
+                        <div style="color: #555; font-size: 15px; margin-bottom: 5px;"><strong>${i18n[currentLang].history_date}:</strong> ${item.date}</div>
+                        <div style="color: #555; font-size: 15px; margin-bottom: 5px;"><strong>${i18n[currentLang].history_pkg}:</strong> ${item.packageDetails}</div>
+                        <div style="color: #555; font-size: 15px;"><strong>${i18n[currentLang].history_method}:</strong> ${item.method.toUpperCase()}</div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+            historyView.style.display = "block";
+            document.getElementById("user-dropdown").style.display = "none";
+        });
     }
 
     detailsRegisterBtn.addEventListener("click", () => {
-        const data = pageData[currentSelectionId];
+        const rootData = pageData[currentSelectionId];
+        const data = rootData[currentLang];
+
         if (data && data.price) {
-            checkoutTitle.textContent = data.title + " Registration";
-            checkoutDesc.textContent = data.packageDetails;
-            checkoutPrice.textContent = data.price;
-            hideAllViews();
-            checkoutView.style.display = "block";
-            window.scrollTo(0, 0);
-        } else if (data && data.buttonText === "Become a Member") {
+            navigateTo(() => {
+                checkoutTitle.textContent = data.title + (currentLang === 'en' ? " Registration" : " Đăng ký");
+                checkoutDesc.textContent = data.packageDetails;
+                checkoutPrice.textContent = data.price;
+                checkoutView.style.display = "block";
+            });
+        } else if (data && (data.buttonText === "Become a Member" || data.buttonText === "Trở thành Thành viên")) {
             if (!currentUserProfile) document.getElementById("signup-modal").style.display = "flex";
-            else alert("You are already a registered member!");
-        } else if (data && data.buttonText === "Share Article") {
-            alert("Article link copied to your clipboard!");
+            else alert(i18n[currentLang].alert_member);
+        } else if (data && (data.buttonText === "Share Article" || data.buttonText === "Chia sẻ bài viết")) {
+            alert(i18n[currentLang].alert_copy);
         }
     });
 
@@ -167,27 +314,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showProfile() {
         if (!currentUserProfile) return;
-        
-        // Dynamically load the profile avatar
-        document.getElementById("prof-avatar").src = currentUserProfile.avatar || "https://via.placeholder.com/100?text=Avatar";
-        
-        document.getElementById("prof-name").textContent = currentUserProfile.fullName;
-        document.getElementById("prof-country").textContent = currentUserProfile.country;
-        document.getElementById("prof-email").textContent = currentUserProfile.email;
-        document.getElementById("prof-phone").textContent = currentUserProfile.phone;
-        document.getElementById("prof-address").textContent = currentUserProfile.address;
-        document.getElementById("prof-postal").textContent = currentUserProfile.postal;
-        
-        hideAllViews();
-        profileView.style.display = "block";
-        document.getElementById("user-dropdown").style.display = "none";
-        window.scrollTo(0, 0);
+        navigateTo(() => {
+            document.getElementById("prof-avatar").src = currentUserProfile.avatar || "https://via.placeholder.com/100?text=Avatar";
+            document.getElementById("prof-name").textContent = currentUserProfile.fullName;
+            document.getElementById("prof-country").textContent = currentUserProfile.country;
+            document.getElementById("prof-email").textContent = currentUserProfile.email;
+            document.getElementById("prof-phone").textContent = currentUserProfile.phone;
+            document.getElementById("prof-address").textContent = currentUserProfile.address;
+            document.getElementById("prof-postal").textContent = currentUserProfile.postal;
+            profileView.style.display = "block";
+            document.getElementById("user-dropdown").style.display = "none";
+        });
     }
 
-    function showTraining() { hideAllViews(); trainingView.style.display = "block"; window.scrollTo(0, 0); }
-    function showMembership() { hideAllViews(); membershipView.style.display = "block"; window.scrollTo(0, 0); }
-    function showInsights() { hideAllViews(); insightsView.style.display = "block"; window.scrollTo(0, 0); }
-    function goHome() { hideAllViews(); homeView.style.display = "block"; window.scrollTo(0, 0); }
+    function showTraining() { navigateTo(() => { trainingView.style.display = "block"; }); }
+    function showMembership() { navigateTo(() => { membershipView.style.display = "block"; }); }
+    function showInsights() { navigateTo(() => { insightsView.style.display = "block"; }); }
+    function goHome() { navigateTo(() => { homeView.style.display = "block"; }); }
     
     document.querySelectorAll(".mega-link").forEach(link => link.addEventListener("click", (e) => { e.preventDefault(); loadPage(link.getAttribute("data-id")); }));
     backBtns.forEach(btn => btn.addEventListener("click", goHome));
@@ -201,7 +344,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if(heroMembershipBtn) heroMembershipBtn.addEventListener("click", (e) => { e.preventDefault(); showMembership(); });
     if(heroCertBtn) heroCertBtn.addEventListener("click", (e) => { e.preventDefault(); showTraining(); });
 
-    // --- DROPDOWN HOVER LOGIC (Desktop Hover, Mobile Click) ---
     const certNavItem = certLink.parentElement;
     certNavItem.addEventListener("mouseenter", () => { if (window.innerWidth > 768) certMenu.style.display = "block"; });
     certNavItem.addEventListener("mouseleave", () => { if (window.innerWidth > 768) certMenu.style.display = "none"; });
@@ -231,7 +373,6 @@ document.addEventListener("DOMContentLoaded", () => {
             this.value = formatted.substring(0, 23); 
         });
     }
-
     if(cardExpInput) {
         cardExpInput.addEventListener("input", function() {
             let val = this.value.replace(/\D/g, "");
@@ -239,7 +380,6 @@ document.addEventListener("DOMContentLoaded", () => {
             this.value = val;
         });
     }
-
     if(cardCvvInput) {
         cardCvvInput.addEventListener("input", function() {
             this.value = this.value.replace(/\D/g, "").substring(0, 4);
@@ -253,44 +393,34 @@ document.addEventListener("DOMContentLoaded", () => {
         const delay = Math.floor(Math.random() * 1000) + 2000; 
         setTimeout(() => {
             if (isValid) {
-                icon.innerHTML = '&#10004;';
-                icon.style.color = "#28a745";
-                input.dataset.valid = "true";
+                icon.innerHTML = '✔'; icon.style.color = "#28a745"; input.dataset.valid = "true";
             } else {
-                icon.innerHTML = '&#10008;';
-                icon.style.color = "#dc3545";
-                input.dataset.valid = "false";
+                icon.innerHTML = '✘'; icon.style.color = "#dc3545"; input.dataset.valid = "false";
             }
         }, delay);
     }
 
     if(cardNameInput) cardNameInput.addEventListener("blur", function() {
         if(!this.value.trim()) { iconCardName.innerHTML = ""; this.dataset.valid = "false"; return; }
-        const expectedName = currentUserProfile ? currentUserProfile.fullName.toUpperCase() : "NGUYEN VAN A";
+        const expectedName = currentUserProfile ? currentUserProfile.fullName.toUpperCase() : "NGUYEN MINH QUANG";
         validateInput(this, iconCardName, this.value.trim().toUpperCase() === expectedName.toUpperCase());
     });
-
     if(cardNumInput) cardNumInput.addEventListener("blur", function() {
         if(!this.value.trim()) { iconCardNum.innerHTML = ""; this.dataset.valid = "false"; return; }
         const stripped = this.value.replace(/\s/g, "");
-        // STRICT CHECK FOR EXACTLY 16 OR EXACTLY 19
         validateInput(this, iconCardNum, stripped.length === 16 || stripped.length === 19);
     });
-
     if(cardExpInput) cardExpInput.addEventListener("blur", function() {
         if(!this.value.trim()) { iconCardExp.innerHTML = ""; this.dataset.valid = "false"; return; }
         validateInput(this, iconCardExp, /^(0[1-9]|1[0-2])\/\d{2}$/.test(this.value));
     });
-
     if(cardCvvInput) cardCvvInput.addEventListener("blur", function() {
         if(!this.value.trim()) { iconCardCvv.innerHTML = ""; this.dataset.valid = "false"; return; }
         validateInput(this, iconCardCvv, this.value.length === 3 || this.value.length === 4);
     });
-
     if(paypalEmailInput) paypalEmailInput.addEventListener("blur", function() {
         if(!this.value.trim()) { iconPaypalEmail.innerHTML = ""; this.dataset.valid = "false"; return; }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        validateInput(this, iconPaypalEmail, emailRegex.test(this.value.trim()));
+        validateInput(this, iconPaypalEmail, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value.trim()));
     });
 
     const resetValidation = () => {
@@ -319,7 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
     openPaymentBtn.addEventListener("click", (e) => {
         e.preventDefault();
         if (!currentUserProfile) {
-            alert("Please Sign In or Sign Up before proceeding to payment.");
+            alert(i18n[currentLang].alert_login);
             document.getElementById("login-modal").style.display = "flex";
             return;
         }
@@ -331,15 +461,13 @@ document.addEventListener("DOMContentLoaded", () => {
         paymentModal.style.display = "none";
         paymentForm.reset();
         resetValidation();
-        // Reset PayPal UI
         paypalStep = 1;
         paypalStep1.style.display = "block";
         paypalStep2.style.display = "none";
-        // Reset to default Card Method
         document.querySelector('input[value="card"]').checked = true;
         paymentSections.forEach(sec => sec.classList.remove("active"));
         document.getElementById("card-info").classList.add("active");
-        submitPaymentBtn.textContent = "Submit Payment";
+        submitPaymentBtn.textContent = i18n[currentLang].btn_submit_pay;
         toggleRequiredFields('card');
     }
 
@@ -351,12 +479,8 @@ document.addEventListener("DOMContentLoaded", () => {
             paymentSections.forEach(sec => sec.classList.remove("active"));
             document.getElementById(method + "-info").classList.add("active");
             toggleRequiredFields(method);
-
-            if (method === "paypal" && paypalStep === 1) {
-                submitPaymentBtn.textContent = "Next ->";
-            } else {
-                submitPaymentBtn.textContent = "Submit Payment";
-            }
+            if (method === "paypal" && paypalStep === 1) submitPaymentBtn.textContent = i18n[currentLang].btn_next;
+            else submitPaymentBtn.textContent = i18n[currentLang].btn_submit_pay;
         });
     });
 
@@ -364,20 +488,14 @@ document.addEventListener("DOMContentLoaded", () => {
         paymentSections.forEach(sec => {
             const inputs = sec.querySelectorAll("input");
             if (sec.id === activeMethod + "-info") {
-                if (activeMethod === "paypal" && paypalStep === 2) {
-                    inputs.forEach(i => i.removeAttribute("required"));
-                } else {
-                    inputs.forEach(i => i.setAttribute("required", "true"));
-                }
-            } else {
-                inputs.forEach(i => i.removeAttribute("required"));
-            }
+                if (activeMethod === "paypal" && paypalStep === 2) inputs.forEach(i => i.removeAttribute("required"));
+                else inputs.forEach(i => i.setAttribute("required", "true"));
+            } else inputs.forEach(i => i.removeAttribute("required"));
         });
     }
 
     paymentForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        
         let selectedMethod = "card"; 
         paymentRadios.forEach(r => { if(r.checked) selectedMethod = r.value; });
 
@@ -386,30 +504,23 @@ document.addEventListener("DOMContentLoaded", () => {
             const isNumValid = document.getElementById("card-number").dataset.valid === "true";
             const isExpValid = document.getElementById("card-expiry").dataset.valid === "true";
             const isCvvValid = document.getElementById("card-cvv").dataset.valid === "true";
-
             if (!isNameValid || !isNumValid || !isExpValid || !isCvvValid) {
-                alert("Please correctly fill out your card details and wait for verification (Green Tick) before submitting.");
-                return; 
+                alert(i18n[currentLang].alert_card); return; 
             }
         }
 
-        if (selectedMethod === "paypal") {
-            if (paypalStep === 1) {
-                const isEmailValid = document.getElementById("paypal-email").dataset.valid === "true";
-                if (!isEmailValid) {
-                    alert("Please enter a valid PayPal email address and wait for verification (Green Tick).");
-                    return;
-                }
-                paypalStep = 2;
-                paypalStep1.style.display = "none";
-                paypalStep2.style.display = "block";
-                submitPaymentBtn.textContent = "Submit Payment";
-                toggleRequiredFields('paypal'); 
-                return; 
-            }
+        if (selectedMethod === "paypal" && paypalStep === 1) {
+            const isEmailValid = document.getElementById("paypal-email").dataset.valid === "true";
+            if (!isEmailValid) { alert(i18n[currentLang].alert_pp); return; }
+            paypalStep = 2;
+            paypalStep1.style.display = "none";
+            paypalStep2.style.display = "block";
+            submitPaymentBtn.textContent = i18n[currentLang].btn_submit_pay;
+            toggleRequiredFields('paypal'); 
+            return; 
         }
 
-        const itemData = pageData[currentSelectionId];
+        const itemData = pageData[currentSelectionId][currentLang];
         const today = new Date().toLocaleDateString();
 
         const purchaseRecord = {
@@ -421,15 +532,12 @@ document.addEventListener("DOMContentLoaded", () => {
         processingModal.style.display = "flex";
 
         const randomDelay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
-        console.log(`Verifying payment... taking ${randomDelay / 1000} seconds.`);
-
         setTimeout(() => {
             currentUserProfile.purchaseHistory.push(purchaseRecord);
             localStorage.setItem("cyberCertUser", JSON.stringify(currentUserProfile)); 
 
             processingModal.style.display = "none";
             paymentSuccessModal.style.display = "flex";
-            
             paymentSuccessAnim.goToAndPlay(0, true);
 
             let count = 5;
@@ -446,7 +554,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     showPurchaseHistory(); 
                 }
             }, 1000);
-            
         }, randomDelay);
     });
 
@@ -493,7 +600,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentUserProfile = {
             username: regUsername, fullName: document.getElementById("reg-fullname").value.trim(),
             email: document.getElementById("reg-email").value.trim(),
-            country: "🇻🇳 Viet Nam", phone: "+84", address: "Address", postal: "00000",
+            country: "Viet Nam", phone: "+84", address: "Address", postal: "00000",
             purchaseHistory: [],
             avatar: "https://via.placeholder.com/100?text=" + regUsername.charAt(0).toUpperCase()
         };
@@ -530,8 +637,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".toggle-password").forEach(btn => {
         btn.addEventListener("click", function() {
             const input = this.previousElementSibling;
-            if (input.type === "password") { input.type = "text"; this.textContent = "Hide"; } 
-            else { input.type = "password"; this.textContent = "Show"; }
+            if (input.type === "password") { input.type = "text"; this.textContent = i18n[currentLang].mod_show === "Show" ? "Hide" : "Ẩn"; } 
+            else { input.type = "password"; this.textContent = i18n[currentLang].mod_show; }
         });
     });
 });

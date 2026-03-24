@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="page-loader" class="page-loader" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
     <header id="main-header">
         <div class="container nav-container">
             <div class="logo" id="logo-home">CyberCert <span>Pro</span></div>
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li class="nav-item">
-                        <a href="#" id="cert-link">Certifications &#9662;</a>
+                        <a href="#" id="cert-link" data-i18n="nav_cert">Certifications ▾</a>
                         <div class="mega-menu" id="cert-mega-menu" style="display: none;">
                             <div class="mega-menu-content">
                                 <div class="mega-menu-column">
-                                    <h4>Top Certifications</h4>
+                                    <h4 data-i18n="nav_top_cert">Top Certifications</h4>
                                     <ul>
                                         <li><a href="#" class="mega-link" data-id="cissp"><strong>CISSP</strong> - Info Systems Security Professional</a></li>
                                         <li><a href="#" class="mega-link" data-id="ccsp"><strong>CCSP</strong> - Cloud Security Professional</a></li>
@@ -26,78 +30,67 @@
                                     </ul>
                                 </div>
                                 <div class="mega-menu-column">
-                                    <h4>Training Packages</h4>
+                                    <h4 data-i18n="nav_train_pkg">Training Packages</h4>
                                     <ul>
-                                        <li><a href="#" class="mega-link" data-id="self-paced"><strong>Self-Paced Training</strong> - Learn at your own speed.</a></li>
-                                        <li><a href="#" class="mega-link" data-id="instructor-led"><strong>Online Instructor-Led</strong> - Live virtual classes.</a></li>
-                                        <li><a href="#" class="mega-link" data-id="enterprise"><strong>Enterprise Teams</strong> - Customized group training.</a></li>
+                                        <li><a href="#" class="mega-link" data-id="self-paced"><strong data-i18n="nav_self">Self-Paced Training</strong></a></li>
+                                        <li><a href="#" class="mega-link" data-id="instructor-led"><strong data-i18n="nav_inst">Online Instructor-Led</strong></a></li>
+                                        <li><a href="#" class="mega-link" data-id="enterprise"><strong data-i18n="nav_ent">Enterprise Teams</strong></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="#" id="training-link">Training</a></li>
-                    <li class="nav-item"><a href="#" id="membership-link">Membership</a></li>
-                    <li class="nav-item"><a href="#" id="insights-link">Insights</a></li>
+                    <li class="nav-item"><a href="#" id="training-link" data-i18n="nav_train">Training</a></li>
+                    <li class="nav-item"><a href="#" id="membership-link" data-i18n="nav_mem">Membership</a></li>
+                    <li class="nav-item"><a href="#" id="insights-link" data-i18n="nav_ins">Insights</a></li>
                 </ul>
             </nav>
             
-            <div class="auth-container">
+            <div class="auth-container" style="display: flex; align-items: center; gap: 15px;">
+                <div class="lang-toggle">
+                    <span id="lang-en" class="active">EN</span> | <span id="lang-vi">VN</span>
+                </div>
+
                 <div class="auth-buttons" id="auth-buttons">
-                    <button class="btn-secondary" id="signup-btn">Sign Up</button>
-                    <button class="btn-primary" id="login-btn">Sign In</button>
+                    <button class="btn-secondary" id="signup-btn" data-i18n="btn_signup">Sign Up</button>
+                    <button class="btn-primary" id="login-btn" data-i18n="btn_signin">Sign In</button>
                 </div>
                 
                 <div class="user-menu" id="user-menu" style="display: none;">
                     <button class="btn-secondary" id="username-btn">Username</button>
                     <div class="dropdown" id="user-dropdown" style="display: none;">
-                        <button class="dropdown-item" id="profile-action-btn">My Profile</button>
-                        <button class="dropdown-item" id="history-action-btn">Purchase History</button>
-                        <button class="dropdown-item logout-text" id="logout-action-btn">Log Out</button>
+                        <button class="dropdown-item" id="profile-action-btn" data-i18n="drop_profile">My Profile</button>
+                        <button class="dropdown-item" id="history-action-btn" data-i18n="drop_history">Purchase History</button>
+                        <button class="dropdown-item logout-text" id="logout-action-btn" data-i18n="drop_logout">Log Out</button>
                     </div>
                 </div>
             </div>
 
-            <div class="hamburger" id="hamburger">&#9776;</div>
+            <div class="hamburger" id="hamburger">☰</div>
         </div>
     </header>
 
     <div id="home-view">
         <section class="hero">
             <div class="container hero-content">
-                <h1>Advance Your Cybersecurity Career</h1>
-                <p>Join millions of professionals worldwide. Validate your expertise, build your network, and protect the digital world with our globally recognized certifications.</p>
+                <h1 data-i18n="hero_title">Advance Your Cybersecurity Career</h1>
+                <p data-i18n="hero_desc">Join millions of professionals worldwide. Validate your expertise, build your network, and protect the digital world with our globally recognized certifications.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary" id="hero-membership-btn">Become a Member</button>
-                    <button class="btn-secondary" id="hero-cert-btn">Find a Certification</button>
+                    <button class="btn-primary" id="hero-membership-btn" data-i18n="hero_btn_mem">Become a Member</button>
+                    <button class="btn-secondary" id="hero-cert-btn" data-i18n="hero_btn_cert">Find a Certification</button>
                 </div>
             </div>
         </section>
 
         <section class="certifications">
             <div class="container">
-                <h2>Our Top Certifications</h2>
-                <p class="section-subtitle">Find the right path for your career stage and goals.</p>
+                <h2 data-i18n="home_cert_title">Our Top Certifications</h2>
+                <p class="section-subtitle" data-i18n="home_cert_sub">Find the right path for your career stage and goals.</p>
                 
                 <div class="card-grid">
-                    <div class="card">
-                        <div class="card-tag">Leadership</div>
-                        <h3>CISSP</h3>
-                        <p>The gold standard in cybersecurity. Prove you have what it takes to design, implement, and manage a best-in-class cybersecurity program.</p>
-                        <a href="#" class="learn-more mega-link" data-id="cissp">Learn more &rarr;</a>
-                    </div>
-                    <div class="card">
-                        <div class="card-tag">Cloud</div>
-                        <h3>CCSP</h3>
-                        <p>Showcase your advanced technical skills and knowledge to design, manage, and secure data, applications, and infrastructure in the cloud.</p>
-                        <a href="#" class="learn-more mega-link" data-id="ccsp">Learn more &rarr;</a>
-                    </div>
-                    <div class="card">
-                        <div class="card-tag">Entry-Level</div>
-                        <h3>Cyber in Practice (CC)</h3>
-                        <p>Start your career with confidence. This certification proves you have the foundational knowledge to secure modern networks.</p>
-                        <a href="#" class="learn-more mega-link" data-id="cc">Learn more &rarr;</a>
-                    </div>
+                    <div class="card"><div class="card-tag" data-i18n="tag_lead">Leadership</div><h3>CISSP</h3><p data-i18n="desc_cissp">The gold standard in cybersecurity. Prove you have what it takes to design, implement, and manage a best-in-class cybersecurity program.</p><a href="#" class="learn-more mega-link" data-id="cissp" data-i18n="btn_learn">Learn more →</a></div>
+                    <div class="card"><div class="card-tag" data-i18n="tag_cloud">Cloud</div><h3>CCSP</h3><p data-i18n="desc_ccsp">Showcase your advanced technical skills and knowledge to design, manage, and secure data, applications, and infrastructure in the cloud.</p><a href="#" class="learn-more mega-link" data-id="ccsp" data-i18n="btn_learn">Learn more →</a></div>
+                    <div class="card"><div class="card-tag" data-i18n="tag_entry">Entry-Level</div><h3>Cyber in Practice (CC)</h3><p data-i18n="desc_cc">Start your career with confidence. This certification proves you have the foundational knowledge to secure modern networks.</p><a href="#" class="learn-more mega-link" data-id="cc" data-i18n="btn_learn">Learn more →</a></div>
                 </div>
             </div>
         </section>
@@ -105,45 +98,45 @@
 
     <div id="training-view" class="view-section" style="display: none;">
         <div class="container">
-            <button class="btn-back back-to-home">&larr; Back to Home</button>
+            <button class="btn-back back-to-home" data-i18n="btn_back_home">← Back to Home</button>
             <div class="section-header">
-                <h2>Training & Certification Catalog</h2>
-                <p>Explore our comprehensive list of industry-leading certifications and flexible training packages designed to elevate your cybersecurity career.</p>
+                <h2 data-i18n="train_title">Training & Certification Catalog</h2>
+                <p data-i18n="train_sub">Explore our comprehensive list of industry-leading certifications and flexible training packages designed to elevate your cybersecurity career.</p>
             </div>
             <div class="card-grid">
-                <div class="card"><div class="card-tag">Leadership</div><h3>CISSP</h3><p>Validate your expertise in designing best-in-class programs.</p><a href="#" class="learn-more mega-link" data-id="cissp">View Details &rarr;</a></div>
-                <div class="card"><div class="card-tag">Cloud</div><h3>CCSP</h3><p>Demonstrate your advanced technical skills for the cloud.</p><a href="#" class="learn-more mega-link" data-id="ccsp">View Details &rarr;</a></div>
-                <div class="card"><div class="card-tag">Operational</div><h3>SSCP</h3><p>Confirm your ability to implement and administer IT infrastructure.</p><a href="#" class="learn-more mega-link" data-id="sscp">View Details &rarr;</a></div>
-                <div class="card"><div class="card-tag">Entry-Level</div><h3>CC</h3><p>Prove you have the foundational knowledge for an entry-level role.</p><a href="#" class="learn-more mega-link" data-id="cc">View Details &rarr;</a></div>
+                <div class="card"><div class="card-tag" data-i18n="tag_lead">Leadership</div><h3>CISSP</h3><p data-i18n="desc_cissp_short">Validate your expertise in designing best-in-class programs.</p><a href="#" class="learn-more mega-link" data-id="cissp" data-i18n="btn_view">View Details →</a></div>
+                <div class="card"><div class="card-tag" data-i18n="tag_cloud">Cloud</div><h3>CCSP</h3><p data-i18n="desc_ccsp_short">Demonstrate your advanced technical skills for the cloud.</p><a href="#" class="learn-more mega-link" data-id="ccsp" data-i18n="btn_view">View Details →</a></div>
+                <div class="card"><div class="card-tag" data-i18n="tag_op">Operational</div><h3>SSCP</h3><p data-i18n="desc_sscp_short">Confirm your ability to implement and administer IT infrastructure.</p><a href="#" class="learn-more mega-link" data-id="sscp" data-i18n="btn_view">View Details →</a></div>
+                <div class="card"><div class="card-tag" data-i18n="tag_entry">Entry-Level</div><h3>CC</h3><p data-i18n="desc_cc_short">Prove you have the foundational knowledge for an entry-level role.</p><a href="#" class="learn-more mega-link" data-id="cc" data-i18n="btn_view">View Details →</a></div>
             </div>
         </div>
     </div>
 
     <div id="membership-view" class="view-section" style="display: none;">
         <div class="container">
-            <button class="btn-back back-to-home">&larr; Back to Home</button>
+            <button class="btn-back back-to-home" data-i18n="btn_back_home">← Back to Home</button>
             <div class="section-header">
-                <h2>CyberCert Pro Membership</h2>
-                <p>Connect with a global network of cybersecurity professionals, access exclusive resources, and accelerate your career.</p>
+                <h2 data-i18n="mem_title">CyberCert Pro Membership</h2>
+                <p data-i18n="mem_sub">Connect with a global network of cybersecurity professionals, access exclusive resources, and accelerate your career.</p>
             </div>
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-tag">Community</div>
-                    <h3>Global Networking</h3>
-                    <p>Connect with peers, mentors, and industry leaders through our private forums and local chapter events around the world.</p>
-                    <a href="#" class="learn-more mega-link" data-id="networking">View Details &rarr;</a>
+                    <div class="card-tag" data-i18n="tag_comm">Community</div>
+                    <h3 data-i18n="mem_net">Global Networking</h3>
+                    <p data-i18n="desc_net">Connect with peers, mentors, and industry leaders through our private forums and local chapter events around the world.</p>
+                    <a href="#" class="learn-more mega-link" data-id="networking" data-i18n="btn_view">View Details →</a>
                 </div>
                 <div class="card">
-                    <div class="card-tag">Resources</div>
-                    <h3>Exclusive Content</h3>
-                    <p>Gain free access to premium webinars, deep-dive research reports, and technical whitepapers.</p>
-                    <a href="#" class="learn-more mega-link" data-id="resources">View Details &rarr;</a>
+                    <div class="card-tag" data-i18n="tag_res">Resources</div>
+                    <h3 data-i18n="mem_res">Exclusive Content</h3>
+                    <p data-i18n="desc_res">Gain free access to premium webinars, deep-dive research reports, and technical whitepapers.</p>
+                    <a href="#" class="learn-more mega-link" data-id="resources" data-i18n="btn_view">View Details →</a>
                 </div>
                 <div class="card">
-                    <div class="card-tag">Savings</div>
-                    <h3>Discounts</h3>
-                    <p>Enjoy up to 20% off all training packages, exam vouchers, and conference tickets.</p>
-                    <a href="#" class="learn-more mega-link" data-id="discounts">View Details &rarr;</a>
+                    <div class="card-tag" data-i18n="tag_sav">Savings</div>
+                    <h3 data-i18n="mem_disc">Discounts</h3>
+                    <p data-i18n="desc_disc">Enjoy up to 20% off all training packages, exam vouchers, and conference tickets.</p>
+                    <a href="#" class="learn-more mega-link" data-id="discounts" data-i18n="btn_view">View Details →</a>
                 </div>
             </div>
         </div>
@@ -151,23 +144,23 @@
 
     <div id="insights-view" class="view-section" style="display: none;">
         <div class="container">
-            <button class="btn-back back-to-home">&larr; Back to Home</button>
+            <button class="btn-back back-to-home" data-i18n="btn_back_home">← Back to Home</button>
             <div class="section-header">
-                <h2>Cybersecurity Insights & News</h2>
-                <p>Stay ahead of the curve with the latest threat research, career advice, and industry trends from our expert contributors.</p>
+                <h2 data-i18n="ins_title">Cybersecurity Insights & News</h2>
+                <p data-i18n="ins_sub">Stay ahead of the curve with the latest threat research, career advice, and industry trends from our expert contributors.</p>
             </div>
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-tag">Threat Intelligence</div>
-                    <h3>The Rise of AI-Powered Phishing</h3>
-                    <p>Discover how threat actors are leveraging generative AI to craft highly convincing campaigns.</p>
-                    <a href="#" class="learn-more mega-link" data-id="ai-phishing">Read Article &rarr;</a>
+                    <div class="card-tag" data-i18n="tag_threat">Threat Intelligence</div>
+                    <h3 data-i18n="ins_phish">The Rise of AI-Powered Phishing</h3>
+                    <p data-i18n="desc_phish">Discover how threat actors are leveraging generative AI to craft highly convincing campaigns.</p>
+                    <a href="#" class="learn-more mega-link" data-id="ai-phishing" data-i18n="btn_read">Read Article →</a>
                 </div>
                 <div class="card">
-                    <div class="card-tag">Career Advice</div>
-                    <h3>Transitioning from IT to Cybersecurity</h3>
-                    <p>A practical guide for IT professionals looking to make the leap into security roles.</p>
-                    <a href="#" class="learn-more mega-link" data-id="career-transition">Read Article &rarr;</a>
+                    <div class="card-tag" data-i18n="tag_career">Career Advice</div>
+                    <h3 data-i18n="ins_career">Transitioning from IT to Cybersecurity</h3>
+                    <p data-i18n="desc_career">A practical guide for IT professionals looking to make the leap into security roles.</p>
+                    <a href="#" class="learn-more mega-link" data-id="career-transition" data-i18n="btn_read">Read Article →</a>
                 </div>
             </div>
         </div>
@@ -176,22 +169,22 @@
     <div id="details-view" style="display: none;">
         <div class="details-header">
             <div class="container">
-                <button class="btn-back back-to-home" style="color: #fff;">&larr; Back to Home</button>
+                <button class="btn-back back-to-home" style="color: #fff;" data-i18n="btn_back_home">← Back to Home</button>
                 <h1 id="details-title">Title Placeholder</h1>
                 <p id="details-subtitle">Subtitle Placeholder</p>
             </div>
         </div>
         <div class="container details-body">
             <div class="details-content">
-                <h3 id="details-section-title">Overview</h3>
+                <h3 id="details-section-title" data-i18n="det_overview">Overview</h3>
                 <p id="details-description">Description Placeholder</p>
                 <ul id="details-list" class="details-list"></ul>
                 <button id="details-register-btn" class="btn-primary" style="margin-top: 20px;">Register Now</button>
             </div>
             <div class="details-sidebar">
                 <div class="sidebar-box">
-                    <h4>Why Choose Us?</h4>
-                    <p>We are the world's leading cybersecurity professional organization. Join millions of experts and elevate your career today.</p>
+                    <h4 data-i18n="det_why">Why Choose Us?</h4>
+                    <p data-i18n="det_why_desc">We are the world's leading cybersecurity professional organization. Join millions of experts and elevate your career today.</p>
                 </div>
             </div>
         </div>
@@ -199,30 +192,30 @@
 
     <div id="checkout-view" class="view-section" style="display: none;">
         <div class="container">
-            <button class="btn-back" id="back-to-details">&larr; Back to Details</button>
+            <button class="btn-back" id="back-to-details" data-i18n="btn_back_details">← Back to Details</button>
             <div class="checkout-container">
-                <h2>Order Summary</h2>
+                <h2 data-i18n="chk_summary">Order Summary</h2>
                 <div class="order-details">
                     <h3 id="checkout-title">Certification Exam</h3>
                     <div class="checkout-package">
-                        <strong>Package Includes:</strong>
+                        <strong data-i18n="chk_pkg">Package Includes:</strong>
                         <span id="checkout-desc">Self-Paced Training & Exam Voucher</span>
                     </div>
                     <div class="checkout-total">
-                        <span>Total Due:</span>
+                        <span data-i18n="chk_total">Total Due:</span>
                         <span id="checkout-price">$0</span>
                     </div>
                 </div>
-                <button id="open-payment-btn" class="btn-primary full-width" style="font-size: 18px; padding: 15px;">Proceed to Secure Payment</button>
+                <button id="open-payment-btn" class="btn-primary full-width" style="font-size: 18px; padding: 15px;" data-i18n="btn_proceed">Proceed to Secure Payment</button>
             </div>
         </div>
     </div>
 
     <div id="history-view" class="view-section" style="display: none;">
         <div class="container">
-            <button class="btn-back back-to-home">&larr; Back to Home</button>
+            <button class="btn-back back-to-home" data-i18n="btn_back_home">← Back to Home</button>
             <div style="max-width: 800px; margin: 0 auto;">
-                <h2 style="color: #003b5c; margin-bottom: 30px; font-size: 32px;">Purchase History</h2>
+                <h2 style="color: #003b5c; margin-bottom: 30px; font-size: 32px;" data-i18n="hist_title">Purchase History</h2>
                 <div id="history-container">
                     </div>
             </div>
@@ -231,80 +224,79 @@
 
     <div id="profile-view" class="view-section" style="display: none;">
         <div class="container">
-            <button class="btn-back back-to-home">&larr; Back to Home</button>
-            <h2 style="color: #003b5c; margin-bottom: 20px;">My Profile</h2>
+            <button class="btn-back back-to-home" data-i18n="btn_back_home">← Back to Home</button>
+            <h2 style="color: #003b5c; margin-bottom: 20px; text-align: center;" data-i18n="prof_title">My Profile</h2>
             <div class="profile-card">
-                <img id="prof-avatar" class="profile-avatar" src="" alt="Profile Picture" onerror="this.src='https://via.placeholder.com/100?text=Avatar'">
-                
-                <div class="profile-row"><span class="profile-label">Full Name:</span><span class="profile-value" id="prof-name"></span></div>
-                <div class="profile-row"><span class="profile-label">Country:</span><span class="profile-value" id="prof-country"></span></div>
-                <div class="profile-row"><span class="profile-label">Email:</span><span class="profile-value" id="prof-email"></span></div>
-                <div class="profile-row"><span class="profile-label">Phone:</span><span class="profile-value" id="prof-phone"></span></div>
-                <div class="profile-row"><span class="profile-label">Status:</span><span class="profile-value status-active"><span class="green-dot"></span> Active</span></div>
-                <div class="profile-row"><span class="profile-label">Address:</span><span class="profile-value" id="prof-address"></span></div>
-                <div class="profile-row"><span class="profile-label">Postal Code:</span><span class="profile-value" id="prof-postal"></span></div>
+                <img id="prof-avatar" class="profile-avatar" src="" alt="Profile Picture" onerror="this.src='https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-1/578275623_837105788695621_3685044230068004993_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeH4CpgGkH6GShxape2aERZcFlRzy0HZPX8WVHPLQdk9fyXA5gcEDOSLnK_p7g0TgQ6X7uBbzhLa_wzuLbvdUqFn&_nc_ohc=ABJXkJ-PEpQQ7kNvwEx0LH-&_nc_oc=AdoR9fEVXX--s1GYfUWZstuQlWmRboik0Gvp5VQmtn_-SdzdCk5DHanKvJm0__1FeA-pzA1pD9g0v1Zx4-hM7ldh&_nc_zt=24&_nc_ht=scontent-hkg1-1.xx&_nc_gid=17I9ykG27T5xgak0xLPqfw&_nc_ss=7a32e&oh=00_Afy-dfXMeCkx6RzhAVb5qpRsJsUlhASLxJ15Pl_2i_muJg&oe=69C7D3F8'">
+                <div class="profile-row"><span class="profile-label" data-i18n="prof_fname">Full Name:</span><span class="profile-value" id="prof-name"></span></div>
+                <div class="profile-row"><span class="profile-label" data-i18n="prof_country">Country:</span><span class="profile-value" id="prof-country"></span></div>
+                <div class="profile-row"><span class="profile-label" data-i18n="prof_email">Email:</span><span class="profile-value" id="prof-email"></span></div>
+                <div class="profile-row"><span class="profile-label" data-i18n="prof_phone">Phone:</span><span class="profile-value" id="prof-phone"></span></div>
+                <div class="profile-row"><span class="profile-label" data-i18n="prof_status">Status:</span><span class="profile-value status-active"><span class="green-dot"></span> <span data-i18n="prof_active">Active</span></span></div>
+                <div class="profile-row"><span class="profile-label" data-i18n="prof_address">Address:</span><span class="profile-value" id="prof-address"></span></div>
+                <div class="profile-row"><span class="profile-label" data-i18n="prof_postal">Postal Code:</span><span class="profile-value" id="prof-postal"></span></div>
             </div>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 CyberCert Pro Demo. All rights reserved.</p>
+            <p>© 2026 CyberCert Pro Demo. All rights reserved.</p>
         </div>
     </footer>
 
     <div id="login-modal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" id="close-modal">&times;</span>
-            <h2>Sign In</h2>
+            <span class="close-btn" id="close-modal">×</span>
+            <h2 data-i18n="mod_login_title">Sign In</h2>
             <form id="login-form">
                 <div class="input-group">
-                    <label>Username</label>
-                    <input type="text" id="username" required placeholder="Enter username...">
+                    <label data-i18n="mod_user">Username</label>
+                    <input type="text" id="username" required data-i18n="mod_user_ph" placeholder="Enter username...">
                 </div>
                 <div class="input-group">
-                    <label>Password</label>
+                    <label data-i18n="mod_pass">Password</label>
                     <div class="password-wrapper">
-                        <input type="password" id="password" required placeholder="Enter password...">
-                        <button type="button" class="toggle-password">Show</button>
+                        <input type="password" id="password" required data-i18n="mod_pass_ph" placeholder="Enter password...">
+                        <button type="button" class="toggle-password" data-i18n="mod_show">Show</button>
                     </div>
                 </div>
-                <button type="submit" class="btn-primary full-width">Login</button>
+                <button type="submit" class="btn-primary full-width" data-i18n="btn_signin">Login</button>
             </form>
         </div>
     </div>
 
     <div id="signup-modal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" id="close-signup-modal">&times;</span>
-            <h2>Create an Account</h2>
+            <span class="close-btn" id="close-signup-modal">×</span>
+            <h2 data-i18n="mod_signup_title">Create an Account</h2>
             <form id="signup-form">
-                <div class="input-group"><label>Username</label><input type="text" id="reg-username" required></div>
-                <div class="input-group"><label>Full Name</label><input type="text" id="reg-fullname" required></div>
-                <div class="input-group"><label>Email Address</label><input type="email" id="reg-email" required></div>
+                <div class="input-group"><label data-i18n="mod_user">Username</label><input type="text" id="reg-username" required></div>
+                <div class="input-group"><label data-i18n="mod_fname">Full Name</label><input type="text" id="reg-fullname" required></div>
+                <div class="input-group"><label data-i18n="mod_email">Email Address</label><input type="email" id="reg-email" required></div>
                 <div class="input-group">
-                    <label>Password</label>
+                    <label data-i18n="mod_pass">Password</label>
                     <div class="password-wrapper">
                         <input type="password" id="reg-password" required>
-                        <button type="button" class="toggle-password">Show</button>
+                        <button type="button" class="toggle-password" data-i18n="mod_show">Show</button>
                     </div>
                 </div>
                 <div class="input-group">
-                    <label>Confirm Password</label>
+                    <label data-i18n="mod_conf_pass">Confirm Password</label>
                     <div class="password-wrapper">
                         <input type="password" id="reg-confirm-password" required>
-                        <button type="button" class="toggle-password">Show</button>
+                        <button type="button" class="toggle-password" data-i18n="mod_show">Show</button>
                     </div>
                 </div>
-                <button type="submit" class="btn-primary full-width" style="margin-top: 10px;">Sign Up</button>
+                <button type="submit" class="btn-primary full-width" style="margin-top: 10px;" data-i18n="btn_signup">Sign Up</button>
             </form>
         </div>
     </div>
 
     <div id="payment-modal" class="modal">
         <div class="modal-content" style="max-width: 500px;">
-            <span class="close-btn" id="close-payment-modal">&times;</span>
-            <h2 style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;">Select Payment Method</h2>
+            <span class="close-btn" id="close-payment-modal">×</span>
+            <h2 style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;" data-i18n="pay_title">Select Payment Method</h2>
             
             <div class="payment-options">
                 <label><input type="radio" name="pay-method" value="card" checked> Visa/Mastercard</label>
@@ -314,14 +306,14 @@
             <form id="payment-form">
                 <div id="card-info" class="payment-section active">
                     <div class="input-group">
-                        <label>Name on Card</label>
+                        <label data-i18n="pay_name">Name on Card</label>
                         <div class="input-wrapper">
                             <input type="text" id="card-name" placeholder="NGUYEN VAN A">
                             <span class="val-icon" id="icon-card-name"></span>
                         </div>
                     </div>
                     <div class="input-group">
-                        <label>Card Number</label>
+                        <label data-i18n="pay_num">Card Number</label>
                         <div class="input-wrapper">
                             <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX">
                             <span class="val-icon" id="icon-card-number"></span>
@@ -329,7 +321,7 @@
                     </div>
                     <div style="display: flex; gap: 10px;">
                         <div class="input-group" style="flex: 1;">
-                            <label>Expiry (MM/YY)</label>
+                            <label data-i18n="pay_exp">Expiry (MM/YY)</label>
                             <div class="input-wrapper">
                                 <input type="text" id="card-expiry" placeholder="MM/YY">
                                 <span class="val-icon" id="icon-card-expiry"></span>
@@ -348,23 +340,23 @@
                 <div id="paypal-info" class="payment-section">
                     <div id="paypal-step-1">
                         <div class="input-group">
-                            <label>PayPal Email Address</label>
+                            <label data-i18n="pay_pp_email">PayPal Email Address</label>
                             <div class="input-wrapper">
                                 <input type="email" id="paypal-email" placeholder="email@example.com">
                                 <span class="val-icon" id="icon-paypal-email"></span>
                             </div>
                         </div>
-                        <p style="font-size: 14px; color: #666;">You will be required to scan a QR code to authorize the payment after clicking Next.</p>
+                        <p style="font-size: 14px; color: #666;" data-i18n="pay_pp_desc">You will be required to scan a QR code to authorize the payment after clicking Next.</p>
                     </div>
                     
                     <div id="paypal-step-2" style="display: none; text-align: center;">
-                        <p style="font-size: 16px; font-weight: bold; color: #003b5c; margin-bottom: 15px;">Scan QR Code to Authorize</p>
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPwVk6nt5ZjbBsN69UB_B52SXPWsGLg4e5HwCEvhdmXFtHTb7V9lPmuOl418ZhcphTh2TUnC6ofiGOVudWG3_ejy239UhpgB7UfW485Bj1fJulDZXhUfeYEFQGnU4xMKspay-P-YnPY5iNDhCKRomGv=w565-h618-s-no-gm?authuser=0" alt="QR Code" style="max-width: 200px; border: 1px solid #ddd; padding: 10px; border-radius: 8px;">
-                        <p style="font-size: 14px; color: #666; margin-top: 15px;">Once scanned and authorized on your mobile device, click Submit Payment to complete your order.</p>
+                        <p style="font-size: 16px; font-weight: bold; color: #003b5c; margin-bottom: 15px;" data-i18n="pay_qr_title">Scan QR Code to Authorize</p>
+                        <img src="https://i.ibb.co/w5rvbgg/4b3f853c-93e2-4c59-a9aa-13fb0e6d4d59.jpg" alt="QR Code" style="max-width: 200px; border: 1px solid #ddd; padding: 10px; border-radius: 8px;">
+                        <p style="font-size: 14px; color: #666; margin-top: 15px;" data-i18n="pay_qr_desc">Once scanned and authorized on your mobile device, click Submit Payment to complete your order.</p>
                     </div>
                 </div>
 
-                <button type="submit" id="submit-payment-btn" class="btn-primary full-width" style="font-size: 18px; padding: 12px; margin-top: 10px;">Submit Payment</button>
+                <button type="submit" id="submit-payment-btn" class="btn-primary full-width" style="font-size: 18px; padding: 12px; margin-top: 10px;" data-i18n="btn_submit_pay">Submit Payment</button>
             </form>
         </div>
     </div>
@@ -372,25 +364,25 @@
     <div id="processing-modal" class="modal">
         <div class="modal-content" style="text-align: center; padding: 60px 30px;">
             <div class="spinner"></div>
-            <h2 style="color: #003b5c; margin-bottom: 15px;">Please wait a moment...</h2>
-            <p style="color: #666; font-size: 16px;">It will take time to verify your information.</p>
+            <h2 style="color: #003b5c; margin-bottom: 15px;" data-i18n="proc_title">Please wait a moment...</h2>
+            <p style="color: #666; font-size: 16px;" data-i18n="proc_desc">It will take time to verify your information.</p>
         </div>
     </div>
 
     <div id="payment-success-modal" class="modal">
         <div class="modal-content" style="text-align: center; padding: 50px 30px;">
             <div id="lottie-payment-success" class="lottie-anim"></div>
-            <h2 style="color: #28a745; margin-bottom: 15px;">Registration Successful!</h2>
-            <p style="color: #444; font-size: 16px; margin-bottom: 20px;">Check your email for your official receipt and instructions.</p>
-            <p style="color: #666; font-size: 14px;">Redirecting to your Purchase History in <strong id="countdown-timer" style="color: #007bff; font-size: 18px;">5</strong> seconds...</p>
+            <h2 style="color: #28a745; margin-bottom: 15px;" data-i18n="succ_reg">Registration Successful!</h2>
+            <p style="color: #444; font-size: 16px; margin-bottom: 20px;" data-i18n="succ_email">Check your email for your official receipt and instructions.</p>
+            <p style="color: #666; font-size: 14px;"><span data-i18n="succ_redir">Redirecting to your Purchase History in</span> <strong id="countdown-timer" style="color: #007bff; font-size: 18px;">5</strong> <span data-i18n="succ_sec">seconds...</span></p>
         </div>
     </div>
 
     <div id="success-modal" class="modal">
         <div class="modal-content" style="text-align: center; padding: 50px 30px;">
             <div id="lottie-signup-success" class="lottie-anim"></div>
-            <h2 style="color: #28a745; margin-bottom: 10px;">Sign Up Successfully!</h2>
-            <p style="color: #666;">Redirecting to homepage...</p>
+            <h2 style="color: #28a745; margin-bottom: 10px;" data-i18n="succ_signup">Sign Up Successfully!</h2>
+            <p style="color: #666;" data-i18n="succ_redir_home">Redirecting to homepage...</p>
         </div>
     </div>
 
