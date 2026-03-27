@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ins_title: "Cybersecurity Insights & News", ins_sub: "Stay ahead of the curve with the latest threat research, career advice, and industry trends from our expert contributors.",
             ins_phish: "The Rise of AI-Powered Phishing", desc_phish: "Discover how threat actors are leveraging generative AI to craft highly convincing campaigns.",
             ins_career: "Transitioning from IT to Cybersecurity", desc_career: "A practical guide for IT professionals looking to make the leap into security roles.",
+            reg_date: "Registration Period: March 21st to March 30th, 2026", 
             det_overview: "Overview", det_why: "Why Choose Us?", det_why_desc: "We are the world's leading cybersecurity professional organization. Join millions of experts and elevate your career today.",
             chk_summary: "Order Summary", chk_pkg: "Package Includes:", chk_total: "Total Due:", btn_proceed: "Proceed to Secure Payment",
             hist_title: "Purchase History", hist_empty: "No purchases yet!", hist_empty_sub: "Explore our certifications to get started.",
@@ -32,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
             mod_signup_title: "Create an Account", mod_fname: "Full Name", mod_email: "Email Address", mod_conf_pass: "Confirm Password",
             pay_title: "Select Payment Method", pay_name: "Name on Card", pay_num: "Card Number", pay_exp: "Expiry (MM/YY)", pay_pp_email: "PayPal Email Address", pay_pp_desc: "You will be required to scan a QR code to authorize the payment after clicking Next.", pay_qr_title: "Scan QR Code to Authorize", pay_qr_desc: "Once scanned and authorized on your mobile device, click Submit Payment to complete your order.", btn_submit_pay: "Submit Payment", btn_next: "Next ->",
             proc_title: "Please wait a moment...", proc_desc: "It will take time to verify your information.",
-            succ_reg: "Registration Successful!", succ_email: "Check your email for your official receipt and instructions.", succ_redir: "Redirecting to your Purchase History in", succ_sec: "seconds...", succ_signup: "Sign Up Successfully!", succ_redir_home: "Redirecting to homepage...",
-            alert_login: "Please Sign In or Sign Up before proceeding.", alert_member: "You are already a registered member!", alert_copy: "Article link copied to your clipboard!", alert_card: "Please correctly fill out your card details and wait for verification (Green Tick) before submitting.", alert_pp: "Please enter a valid PayPal email address and wait for verification (Green Tick).",
+            succ_reg: "Registration Successful!", succ_email: "Your payment will be completed in less than one day. Please be patient and wait for our confirmation email.", succ_redir: "Redirecting to your Purchase History in", succ_sec: "seconds...", succ_signup: "Sign Up Successfully!", succ_redir_home: "Redirecting to homepage...",
+            alert_login: "Please Sign In or Sign Up before proceeding.", alert_member: "You are already a registered member!", alert_copy: "Article link copied to your clipboard!", alert_card: "Please correctly fill out your card details and wait for verification (Green Tick) before submitting.", alert_pp: "Please enter a valid PayPal email address and wait for verification (Green Tick).", alert_timeout: "Payment session expired. Please try again.",
             history_date: "Date", history_pkg: "Package", history_method: "Payment Method"
         },
         vi: {
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ins_title: "Tin tức & Thông tin chi tiết", ins_sub: "Nắm bắt các xu hướng mới nhất về mối đe dọa, lời khuyên nghề nghiệp từ các chuyên gia.",
             ins_phish: "Sự gia tăng của Phishing bằng AI", desc_phish: "Khám phá cách tin tặc đang sử dụng AI để tạo ra các chiến dịch lừa đảo.",
             ins_career: "Chuyển từ CNTT sang An ninh mạng", desc_career: "Hướng dẫn thực tế cho chuyên gia CNTT muốn chuyển sang vai trò bảo mật.",
+            reg_date: "Thời gian đăng ký: 21 tháng 3 đến 30 tháng 3, 2026", 
             det_overview: "Tổng quan", det_why: "Tại sao chọn chúng tôi?", det_why_desc: "Chúng tôi là tổ chức chuyên gia an ninh mạng hàng đầu thế giới. Hãy tham gia và nâng tầm sự nghiệp của bạn ngay hôm nay.",
             chk_summary: "Tóm tắt Đơn hàng", chk_pkg: "Gói bao gồm:", chk_total: "Tổng cộng:", btn_proceed: "Tiến hành Thanh toán Bảo mật",
             hist_title: "Lịch sử Mua hàng", hist_empty: "Chưa có đơn hàng nào!", hist_empty_sub: "Khám phá các chứng chỉ của chúng tôi để bắt đầu.",
@@ -66,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
             mod_signup_title: "Tạo tài khoản", mod_fname: "Họ và Tên", mod_email: "Địa chỉ Email", mod_conf_pass: "Xác nhận Mật khẩu",
             pay_title: "Chọn Phương thức Thanh toán", pay_name: "Tên trên Thẻ", pay_num: "Số Thẻ", pay_exp: "Hết hạn (MM/YY)", pay_pp_email: "Địa chỉ Email PayPal", pay_pp_desc: "Bạn sẽ cần quét mã QR để ủy quyền thanh toán sau khi nhấp vào Tiếp theo.", pay_qr_title: "Quét mã QR để Ủy quyền", pay_qr_desc: "Sau khi quét và ủy quyền trên thiết bị di động của bạn, nhấp vào Xác nhận Thanh toán để hoàn tất.", btn_submit_pay: "Xác nhận Thanh toán", btn_next: "Tiếp theo ->",
             proc_title: "Vui lòng đợi một lát...", proc_desc: "Hệ thống cần thời gian để xác minh thông tin của bạn.",
-            succ_reg: "Đăng ký Thành công!", succ_email: "Kiểm tra email của bạn để nhận biên lai và hướng dẫn chính thức.", succ_redir: "Chuyển hướng đến Lịch sử mua hàng trong", succ_sec: "giây...", succ_signup: "Đăng ký Thành công!", succ_redir_home: "Chuyển hướng về trang chủ...",
-            alert_login: "Vui lòng Đăng nhập hoặc Đăng ký trước khi thanh toán.", alert_member: "Bạn đã là thành viên đăng ký!", alert_copy: "Đã sao chép liên kết bài viết vào khay nhớ tạm!", alert_card: "Vui lòng điền đúng thông tin thẻ và đợi xác minh (Dấu tích xanh) trước khi gửi.", alert_pp: "Vui lòng nhập email PayPal hợp lệ và đợi xác minh (Dấu tích xanh).",
+            succ_reg: "Đăng ký Thành công!", succ_email: "Thanh toán của bạn sẽ hoàn tất trong chưa đầy 24 giờ. Vui lòng kiên nhẫn chờ email xác nhận từ chúng tôi.", succ_redir: "Chuyển hướng đến Lịch sử mua hàng trong", succ_sec: "giây...", succ_signup: "Đăng ký Thành công!", succ_redir_home: "Chuyển hướng về trang chủ...",
+            alert_login: "Vui lòng Đăng nhập hoặc Đăng ký trước khi thanh toán.", alert_member: "Bạn đã là thành viên đăng ký!", alert_copy: "Đã sao chép liên kết bài viết vào khay nhớ tạm!", alert_card: "Vui lòng điền đúng thông tin thẻ và đợi xác minh (Dấu tích xanh) trước khi gửi.", alert_pp: "Vui lòng nhập email PayPal hợp lệ và đợi xác minh (Dấu tích xanh).", alert_timeout: "Phiên thanh toán đã hết hạn. Vui lòng thử lại.",
             history_date: "Ngày", history_pkg: "Gói", history_method: "Phương thức"
         }
     };
@@ -78,11 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
         currentLang = lang;
         localStorage.setItem("cyberCertLang", lang);
         
-        // Toggle Active Class
         document.getElementById("lang-en").classList.toggle("active", lang === "en");
         document.getElementById("lang-vi").classList.toggle("active", lang === "vi");
 
-        // Update DOM elements based on data-i18n attribute
         document.querySelectorAll("[data-i18n]").forEach(el => {
             const key = el.getAttribute("data-i18n");
             if (i18n[lang] && i18n[lang][key]) {
@@ -94,12 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Re-render dynamic pages to show translated content
         if (currentSelectionId && document.getElementById("details-view").style.display === "block") loadPage(currentSelectionId);
         if (document.getElementById("history-view").style.display === "block") showPurchaseHistory();
     }
 
-    // Bind Toggle Clicks
     document.getElementById("lang-en").addEventListener("click", () => setLanguage("en"));
     document.getElementById("lang-vi").addEventListener("click", () => setLanguage("vi"));
 
@@ -112,50 +110,62 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- BILINGUAL DATA DICTIONARY ---
     const pageData = {
         "cissp": { 
+            img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "CISSP", subtitle: "Certified Information Systems Security Professional", description: "Accelerate your cybersecurity career with the CISSP certification.", bullets: ["Ideal for experienced security practitioners.", "Covers 8 domains including Security and Risk Management.", "Requires 5 years of experience."], price: "$720", packageDetails: "Includes Exam Voucher & Self-Paced Training" },
             vi: { title: "CISSP", subtitle: "Chuyên gia Bảo mật Hệ thống Thông tin", description: "Đẩy nhanh sự nghiệp an ninh mạng với chứng chỉ CISSP.", bullets: ["Lý tưởng cho chuyên gia bảo mật có kinh nghiệm.", "Bao gồm 8 lĩnh vực quản lý rủi ro.", "Yêu cầu 5 năm kinh nghiệm."], price: "$720", packageDetails: "Bao gồm Voucher thi & Đào tạo tự học" }
         },
         "ccsp": { 
+            img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "CCSP", subtitle: "Certified Cloud Security Professional", description: "Earning the globally recognized CCSP cloud security certification is a proven way to build your career.", bullets: ["Ideal for enterprise architects.", "Covers 6 domains.", "Requires 5 years experience."], price: "$599", packageDetails: "Includes Exam Voucher & Official Study Guide" },
             vi: { title: "CCSP", subtitle: "Chuyên gia Bảo mật Đám mây", description: "Đạt chứng chỉ CCSP được công nhận toàn cầu để thăng tiến sự nghiệp.", bullets: ["Lý tưởng cho kiến trúc sư doanh nghiệp.", "Bao gồm 6 lĩnh vực.", "Yêu cầu 5 năm kinh nghiệm."], price: "$599", packageDetails: "Bao gồm Voucher thi & Hướng dẫn học chính thức" }
         },
         "sscp": { 
+            img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "SSCP", subtitle: "Systems Security Certified Practitioner", description: "The SSCP is the ideal certification for those with proven technical skills.", bullets: ["Ideal for Network Security Engineers.", "Covers 7 domains.", "Requires 1 year experience."], price: "$249", packageDetails: "Includes Exam Voucher" },
             vi: { title: "SSCP", subtitle: "Chuyên gia Thực hành Bảo mật Hệ thống", description: "SSCP là chứng chỉ lý tưởng cho những người có kỹ năng kỹ thuật thực tế.", bullets: ["Lý tưởng cho Kỹ sư Bảo mật Mạng.", "Bao gồm 7 lĩnh vực.", "Yêu cầu 1 năm kinh nghiệm."], price: "$249", packageDetails: "Bao gồm Voucher thi" }
         },
         "cc": { 
+            img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "Certified in Cybersecurity (CC)", subtitle: "Your First Step to a Rewarding Career", description: "You don't need experience — just the passion and drive.", bullets: ["Perfect for students.", "No prior experience required.", "Covers Security Principles."], price: "Free", packageDetails: "Includes Free Exam Voucher & Online Training" },
             vi: { title: "Chứng nhận An ninh mạng (CC)", subtitle: "Bước đầu tiên cho sự nghiệp", description: "Bạn không cần kinh nghiệm — chỉ cần đam mê.", bullets: ["Hoàn hảo cho sinh viên.", "Không yêu cầu kinh nghiệm trước.", "Bao gồm Nguyên tắc Bảo mật."], price: "Miễn phí", packageDetails: "Bao gồm Voucher thi miễn phí & Đào tạo trực tuyến" }
         },
         "self-paced": { 
+            img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "Self-Paced Training", subtitle: "Learn at your own speed", description: "180-day access to comprehensive learning materials.", bullets: ["180-day access.", "Includes flashcards.", "Available for all major certs."], price: "$895", packageDetails: "Full Online Access" },
             vi: { title: "Đào tạo Tự học", subtitle: "Học theo tốc độ của bạn", description: "Truy cập 180 ngày vào tài liệu học tập toàn diện.", bullets: ["Truy cập 180 ngày.", "Bao gồm thẻ ghi nhớ.", "Có sẵn cho tất cả chứng chỉ."], price: "$895", packageDetails: "Truy cập trực tuyến đầy đủ" }
         },
         "instructor-led": { 
+            img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "Online Instructor-Led Training", subtitle: "Learn from industry experts", description: "Live interaction with authorized instructors.", bullets: ["Live virtual classroom.", "Taught by authorized experts.", "Includes official courseware."], price: "$2,495", packageDetails: "Live Classes + Materials" },
             vi: { title: "Lớp học Trực tuyến", subtitle: "Học từ các chuyên gia trong ngành", description: "Tương tác trực tiếp với các giảng viên được ủy quyền.", bullets: ["Lớp học ảo trực tiếp.", "Được giảng dạy bởi chuyên gia.", "Bao gồm tài liệu chính thức."], price: "$2,495", packageDetails: "Lớp học trực tiếp + Tài liệu" }
         },
         "enterprise": { 
+            img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "Enterprise Teams", subtitle: "Customized training", description: "Empower your entire team.", bullets: ["Private group training.", "Volume discounts.", "Dedicated account manager."], price: "Custom Quote", packageDetails: "Contact Sales for Pricing" },
             vi: { title: "Đội ngũ Doanh nghiệp", subtitle: "Đào tạo tùy chỉnh", description: "Trao quyền cho toàn bộ đội ngũ của bạn.", bullets: ["Đào tạo nhóm riêng.", "Giảm giá số lượng lớn.", "Quản lý tài khoản chuyên trách."], price: "Báo giá tùy chỉnh", packageDetails: "Liên hệ Bộ phận Bán hàng" }
         },
         "networking": { 
+            img: "https://w0.peakpx.com/wallpaper/758/549/HD-wallpaper-network-technology-concepts-global-networks-ball-of-lines-blue-technology-background-internet-networking-communication-concepts.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "Global Networking", subtitle: "Connect with cybersecurity professionals worldwide.", description: "Join a thriving community of experts. Our private forums and local chapters provide opportunities.", bullets: ["Access to private member-only forums.", "Invitations to exclusive local chapter meetups.", "Mentorship programs for career growth."], buttonText: "Become a Member" },
             vi: { title: "Mạng lưới Toàn cầu", subtitle: "Kết nối với chuyên gia an ninh mạng trên toàn thế giới.", description: "Tham gia cộng đồng phát triển mạnh mẽ. Diễn đàn và hội thảo cung cấp nhiều cơ hội.", bullets: ["Truy cập diễn đàn nội bộ.", "Lời mời tham gia sự kiện độc quyền.", "Chương trình cố vấn nghề nghiệp."], buttonText: "Trở thành Thành viên" }
         },
         "resources": { 
+            img: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "Exclusive Content", subtitle: "Stay ahead with premium resources.", description: "Gain free access to our extensive library of cybersecurity resources.", bullets: ["Monthly premium webinars.", "Deep-dive research reports.", "Technical whitepapers and templates."], buttonText: "Become a Member" },
             vi: { title: "Nội dung Độc quyền", subtitle: "Đi trước với tài nguyên cao cấp.", description: "Truy cập miễn phí thư viện tài nguyên an ninh mạng phong phú.", bullets: ["Hội thảo trên web hàng tháng.", "Báo cáo nghiên cứu chuyên sâu.", "Tài liệu kỹ thuật và mẫu."], buttonText: "Trở thành Thành viên" }
         },
         "discounts": { 
+            img: "https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "Member Discounts", subtitle: "Save on your professional development.", description: "Enjoy substantial savings on training, exams, and events.", bullets: ["Up to 20% off training packages.", "Discounted exam vouchers.", "Reduced rates for global conferences."], buttonText: "Become a Member" },
             vi: { title: "Giảm giá", subtitle: "Tiết kiệm chi phí phát triển chuyên môn.", description: "Tiết kiệm đáng kể cho các khóa học, kỳ thi và sự kiện.", bullets: ["Giảm đến 20% cho gói đào tạo.", "Giảm giá voucher thi.", "Giá ưu đãi cho hội nghị toàn cầu."], buttonText: "Trở thành Thành viên" }
         },
         "ai-phishing": { 
+            img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "The Rise of AI-Powered Phishing", subtitle: "Threat Intelligence Report", description: "Threat actors are increasingly using generative AI to craft highly convincing phishing emails.", bullets: ["AI generates convincing, error-free lures.", "Traditional filters struggle to detect context-aware attacks.", "Defense requires continuous employee training."], buttonText: "Share Article" },
             vi: { title: "Sự gia tăng của Phishing bằng AI", subtitle: "Báo cáo Mối đe dọa", description: "Tin tặc đang sử dụng AI để tạo ra các email lừa đảo cực kỳ tinh vi.", bullets: ["AI tạo ra email lừa đảo không có lỗi chính tả.", "Bộ lọc truyền thống khó phát hiện tấn công theo ngữ cảnh.", "Phòng thủ yêu cầu đào tạo nhân viên liên tục."], buttonText: "Chia sẻ bài viết" }
         },
         "career-transition": { 
+            img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             en: { title: "Transitioning from IT to Cybersecurity", subtitle: "Career Advice Guide", description: "Making the leap from a general IT role to a specialized cybersecurity position requires a strategic approach.", bullets: ["Master networking and OS fundamentals first.", "Earn foundational certifications (CC, SSCP).", "Build practical experience with homelabs."], buttonText: "Share Article" },
             vi: { title: "Chuyển từ CNTT sang An ninh mạng", subtitle: "Hướng dẫn Nghề nghiệp", description: "Việc chuyển từ vai trò CNTT chung sang an ninh mạng đòi hỏi chiến lược cụ thể.", bullets: ["Làm chủ nền tảng mạng và hệ điều hành.", "Đạt chứng chỉ cơ bản (CC, SSCP).", "Xây dựng kinh nghiệm thực tế qua homelab."], buttonText: "Chia sẻ bài viết" }
         }
@@ -165,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentUserProfile = null;
     let currentSelectionId = null; 
 
-    // REQUIRED DEFAULT PROFILE!
     const defaultProfile = {
         username: "DemoUser", fullName: "NGUYEN MINH QUANG", country: "Viet Nam", 
         email: "24022718@vnu.edu.vn", phone: "+84967668507", address: "Huong Canh, Vinh Phuc", postal: "280000", purchaseHistory: [],
@@ -191,6 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const detailsDesc = document.getElementById("details-description");
     const detailsList = document.getElementById("details-list");
     const detailsRegisterBtn = document.getElementById("details-register-btn"); 
+    const detailsImage = document.getElementById("details-image"); 
+    const detailsRegDate = document.getElementById("details-registration-date"); 
     const checkoutTitle = document.getElementById("checkout-title");
     const checkoutDesc = document.getElementById("checkout-desc");
     const checkoutPrice = document.getElementById("checkout-price");
@@ -199,7 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const userMenu = document.getElementById("user-menu");
     const usernameBtn = document.getElementById("username-btn");
 
-    // Initialize UI Text based on Lang
     setLanguage(currentLang);
 
     const savedUser = localStorage.getItem("cyberCertUser");
@@ -240,9 +250,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const rootData = pageData[pageId];
         if (rootData) {
             navigateTo(() => {
-                const data = rootData[currentLang]; // Fetch language-specific data
+                const data = rootData[currentLang]; 
+                
+                detailsImage.src = rootData.img; 
                 detailsTitle.textContent = data.title;
                 detailsSubtitle.textContent = data.subtitle;
+                detailsRegDate.textContent = i18n[currentLang].reg_date; 
                 detailsDesc.textContent = data.description;
                 
                 detailsList.innerHTML = "";
@@ -250,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 if (data.price) {
                     detailsRegisterBtn.style.display = "block";
-                    detailsRegisterBtn.textContent = i18n[currentLang].btn_signup !== "Đăng ký" ? "Register Now" : "Đăng ký Ngay"; // Logic based hack for translation
+                    detailsRegisterBtn.textContent = i18n[currentLang].btn_signup !== "Đăng ký" ? "Register Now" : "Đăng ký Ngay"; 
                 } else if (data.buttonText) {
                     detailsRegisterBtn.style.display = "block";
                     detailsRegisterBtn.textContent = data.buttonText;
@@ -393,9 +406,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const delay = Math.floor(Math.random() * 1000) + 2000; 
         setTimeout(() => {
             if (isValid) {
-                icon.innerHTML = '✔'; icon.style.color = "#28a745"; input.dataset.valid = "true";
+                icon.innerHTML = '✔️'; icon.style.color = "#28a745"; input.dataset.valid = "true";
             } else {
-                icon.innerHTML = '✘'; icon.style.color = "#dc3545"; input.dataset.valid = "false";
+                icon.innerHTML = '✖️'; icon.style.color = "#dc3545"; input.dataset.valid = "false";
             }
         }, delay);
     }
@@ -432,8 +445,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // --- PAYMENT SYSTEM LOGIC ---
+    // --- PAYMENT SYSTEM LOGIC WITH 5 MIN TIMER ---
     let paypalStep = 1;
+    let paymentTimerInterval = null;
+
     const paymentModal = document.getElementById("payment-modal");
     const processingModal = document.getElementById("processing-modal");
     const paymentSuccessModal = document.getElementById("payment-success-modal");
@@ -446,6 +461,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const paypalStep1 = document.getElementById("paypal-step-1");
     const paypalStep2 = document.getElementById("paypal-step-2");
 
+    function startPaymentTimer() {
+        clearInterval(paymentTimerInterval);
+        let timeLeft = 300; // 5 mins (300 secs)
+        const timerText = document.getElementById("payment-timer-text");
+        const timerCircle = document.querySelector(".timer-circle");
+        timerText.textContent = "05:00";
+        timerCircle.classList.remove("warning");
+
+        paymentTimerInterval = setInterval(() => {
+            timeLeft--;
+            let m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+            let s = (timeLeft % 60).toString().padStart(2, '0');
+            timerText.textContent = `${m}:${s}`;
+
+            if(timeLeft <= 60) {
+                timerCircle.classList.add("warning"); 
+            }
+
+            if(timeLeft <= 0) {
+                clearInterval(paymentTimerInterval);
+                alert(i18n[currentLang].alert_timeout);
+                resetPaymentModal();
+            }
+        }, 1000);
+    }
+
     openPaymentBtn.addEventListener("click", (e) => {
         e.preventDefault();
         if (!currentUserProfile) {
@@ -455,10 +496,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         toggleRequiredFields('card'); 
         paymentModal.style.display = "flex";
+        startPaymentTimer(); 
     });
 
     function resetPaymentModal() {
         paymentModal.style.display = "none";
+        clearInterval(paymentTimerInterval); 
         paymentForm.reset();
         resetValidation();
         paypalStep = 1;
@@ -528,6 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
             packageDetails: itemData.packageDetails, date: today, method: selectedMethod
         };
 
+        clearInterval(paymentTimerInterval); 
         paymentModal.style.display = "none";
         processingModal.style.display = "flex";
 
@@ -602,7 +646,7 @@ document.addEventListener("DOMContentLoaded", () => {
             email: document.getElementById("reg-email").value.trim(),
             country: "Viet Nam", phone: "+84", address: "Address", postal: "00000",
             purchaseHistory: [],
-            avatar: "https://via.placeholder.com/100?text=" + regUsername.charAt(0).toUpperCase()
+            avatar: "https://scontent.fhan5-5.fna.fbcdn.net/v/t39.30808-6/578275623_837105788695621_3685044230068004993_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeH4CpgGkH6GShxape2aERZcFlRzy0HZPX8WVHPLQdk9fyXA5gcEDOSLnK_p7g0TgQ6X7uBbzhLa_wzuLbvdUqFn&_nc_ohc=IF3XRsqFbWEQ7kNvwEItDjC&_nc_oc=Adq4Ve1dzK0tnk3Z6E2z6lbFvHzt2XtWtv7mQl9tylA-BTCQ5xmOXvnpxfUXYJ-ql2xHUsfam9q5DY9uEpDv1wJm&_nc_zt=23&_nc_ht=scontent.fhan5-5.fna&_nc_gid=KgQq-qcbGkmwPYOuhnizwg&_nc_ss=7a3a8&oh=00_Afykm0zTqGKabjwY9LYJuEi2mxerUxgZidgffCujWghtNw&oe=69CC6CF2" + regUsername.charAt(0).toUpperCase()
         };
 
         localStorage.setItem("cyberCertUser", JSON.stringify(currentUserProfile));
